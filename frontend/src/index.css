@@ -1,0 +1,326 @@
+* {
+  box-sizing: border-box;
+
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+body {
+  margin: 0;
+  max-width: 100%;
+    overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+}
+
+span {
+  font-weight: 900;
+  font-style: italic;
+  color: #FF073A;
+}
+
+.navbar {
+  background-color: #f6f6f7 !important;
+  color: #6c757d !important;
+  font-weight: 900;
+}
+
+.navbar .container-fluid .navbar-brand:hover {
+  color: #7695F3;
+}
+
+.navbar .container-fluid .navbar-nav .nav-item .nav-link:hover {
+  color: #7695F3;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* WELCOME BANNER */
+
+.welcome-banner-img {
+  width: 100vw;
+  height: 70vh;
+  object-fit: fill;
+  background-position: center;
+  background-repeat: no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+}
+
+
+/* Country Data Section */
+.MapSwitcher-div {
+  position: relative;
+}
+.MapSwitcher {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+}
+.highlight {
+  opacity: 1;
+  background: rgba(0, 123, 255, 0.125);
+  transform: translate3d(344.719px, 0px, 0px);
+}
+
+.MapSwitcher .clickable, .MapSwitcher .highlight {
+  border-radius: 5px;
+  cursor: pointer;
+  height: 13rem;
+  width: 25%;
+  z-index: 10;
+}
+
+.MapSwitcher .highlight {
+  pointer-events: none;
+  position: absolute;
+  width: 25%!important;
+}
+
+.MapSwitcher .clickable {
+  transition: background .15s ease-in-out;
+}
+
+
+
+.column {
+  font-family: 'Anton', sans-serif !important;
+  float: left;
+  width: 20% !important;
+  height: 40% !important;
+  padding: 0 10px !important;
+  margin: 2rem !important;
+  border-radius: 5px;
+}
+
+.column h3 {
+  font-weight: 900 !important;
+  font-size: 2rem;
+}
+
+.column p {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.is-confirmed {
+  color: #FF073A !important;
+}
+
+.is-confirmed:hover {
+  background-color: #dc354520;
+}
+
+.is-active {
+  color: #007BFF !important;
+}
+
+.is-active {
+  background-color: #007bff10 !important;
+}
+
+.is-recovered {
+  color: #28A745 !important;
+}
+
+.is-recovered:hover {
+  background-color: #28a74520;
+}
+
+.is-deaths {
+  color: #FF073A;
+}
+
+.is-deaths:hover {
+  background-color: #dc354520;
+}
+
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+
+.to-state-button {
+  text-align: center;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+/* .to-state-button button {
+  background-color: #886CC7;
+  color: #f1f1f1;
+  padding: 1rem 5rem;
+} */
+
+.to-state-button .btn-sm {
+  box-shadow: 5px 5px 10px rgb(55 94 148 / 20%), -5px -5px 10px rgb(255 255 255 / 40%);
+    transition: background-color .15s ease-in-out,border .15s ease-in-out,box-shadow .15s ease-in-out,color .15s ease-in-out;
+
+  padding: 1rem 5rem;
+  background-color: #886CC7;
+  color: #f1f1f1;
+}
+
+.to-state-button .btn-sm:hover {
+  background-color: #D9E3F1;
+  color: #886CC7;
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100% !important;
+    display: block !important;
+    margin-bottom: 20px !important;
+    margin-right: 20px !important;
+  }
+}
+
+
+
+/* Home Help Section Doctor's */
+.grid-container-doctor {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  margin-top: 10rem;
+}
+
+.doctors-image {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+.grid-container-doctor .grid-link {
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+
+  .grid-container-doctor {
+    grid-template-columns: 1fr;
+  }
+
+  .doctors-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+}
+
+
+
+
+/* <------FOOTER--------> */
+footer {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4rem;
+    margin-top: 4rem;
+    width: 100%;
+    align-self: center;
+  text-align: center;
+  justify-content: center;
+}
+
+footer > * {
+  align-self: center;
+  text-align: center;
+}
+
+h5 {
+  color: #6c757d;
+  font-weight: 600;
+  margin: 0;
+  margin-bottom: 2rem;
+}
+
+svg {
+  margin-right: 0.5rem;
+  padding: 0.25rem;
+}
+
+.telegram {
+  color: #007bff99;
+}
+
+.telegram:hover {
+  color: #007bff;
+}
+
+
+.github {
+  color: #6c757d99;
+}
+
+.github:hover {
+  color: #6c757d;
+}
+
+.instagram {
+  color:#db558199;
+}
+
+
+.instagram:hover {
+  color: #db5581;
+}
+
+.twitter {
+  color: #4c75f299;
+}
+
+.twitter:hover {
+  color: #4c75f2;
+}
+
+
+.api {
+  color: #ffc10799;
+}
+
+.api:hover {
+  color: #ffc107;
+}
+
+.mail {
+  color: #b6854d99;
+}
+
+.mail:hover {
+  color: #b6854d;
+}
+
+footer .link a {
+  font-weight: 900 !important;
+}
