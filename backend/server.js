@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import covidDataRoutes from './routes/covidDataRoutes.js';
 import WBBedRoutes from './routes/wbHospitalRoutes.js';
 import userRoutes from './routes/userRoutes.js';
+import doctorRoutes from './routes/doctorRoutes.js';
 
 
 dotenv.config();
@@ -31,6 +32,8 @@ app.use('/api/covidData', covidDataRoutes);
 app.use('/api/WB-beds', WBBedRoutes);
 
 app.use('/api/adminUser', userRoutes);
+
+app.use('/api/doctors-consultancy', doctorRoutes);
 
 
 

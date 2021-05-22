@@ -1,5 +1,6 @@
 import React from 'react'
-// import DoctorsImage from '../../'
+import { Button } from 'react-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap';
 
 const HomeHelpSection = () => {
     return (
@@ -22,6 +23,16 @@ const HomeHelpSection = () => {
                             Someone famous in <cite title="Source Title">Source Title</cite>
                         </figcaption>
                     </figure>
+
+                    <div className='to-state-button'>
+                        
+                        {/* <button type="button" class="btn btn-dark">Dark</button> */}
+                        <LinkContainer to='/doctors-consultancy'>
+                        <Button className='btn-sm' variant='success'>
+                                    Consult Doctor's
+                        </Button>
+                        </LinkContainer>
+                    </div>
                 </div>
             </div>
 

@@ -11,13 +11,13 @@ const Header = () => {
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
                     <LinkContainer to='/'>
-                        <Navbar.Brand class="navbar-brand">Covid-Ease</Navbar.Brand>
+                        <Navbar.Brand class="navbar-brand"><img className='rotate' src='/images/covid-svg.svg'></img> Covid-Ease</Navbar.Brand>
                     </LinkContainer>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-                    <div class="collapse navbar-collapse" id="navbarColor02">
+                    <div class="navbar-collapse collapse" id="navbarColor02">
 
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
