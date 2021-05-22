@@ -5,9 +5,11 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { doctorListReducer } from './reducers/doctorReducers.js';
+import { userLoginReducer } from './reducers/userReducers.js';
 
 const reducer = combineReducers({
-    doctorList: doctorListReducer
+    doctorList: doctorListReducer,
+    userLogin: userLoginReducer
 });
 
 
@@ -16,7 +18,7 @@ const userInfoFromStorage = localStorage.getItem('userInfoMySite') ? JSON.parse(
 
 
 const initialState = {
-    // userLogIn: { userInfoMySite: userInfoFromStorage }
+    userLogIn: { userInfoMySite: userInfoFromStorage }
 };
 
 const middleware = [thunk];

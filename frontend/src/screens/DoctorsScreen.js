@@ -43,6 +43,8 @@ const DoctorsScreen = () => {
     // }
 
     const [doctors, setDoctors] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState();
 
   useEffect(() => {
     fetch('/api/doctors-consultancy')
@@ -51,30 +53,35 @@ const DoctorsScreen = () => {
         setDoctors(doctors);
       })
       .catch((err) => {
-        console.log(err);
+        setError(err);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   }, []);
 
     return (
         <div className='doctor-layout'>
-            {/* { loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : */}
-                {/* <> */}
+           { loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : 
 
-                { doctors.map((doctor) => (
-                    <div className="card-doctor" key={doctor._id}>
-                        <img src="/images/doctor-profile.jpg" alt="Profile Pic"></img>
-                        <h1 className='doctor-name'>{doctor.name}</h1>
-                        <h2 className="doctor-degree">{doctor.degree}</h2>
-                        <p className="title-doctor">{doctor.treatmentDomain}</p>
-                        <p>Regd No: <span>{doctor.redgNo}</span></p>
-                        <p className="doctor-address">Addrs: {doctor.address}</p>
-                        
-                        <p>
-                            <button><a href={`tel:${doctor.mobileNo}`}><i class="fas fa-phone-alt"></i> Contact</a></button>
-                            <button><a href={`mailto:${doctor.email}`}><i class="far fa-envelope"></i> Mail</a></button>
-                        </p>
-                    </div>
-                ))}
+            <>
+              { doctors.map((doctor) => (
+                <div className="card-doctor" key={doctor._id}>
+                    <img src="/images/doctor-profile.jpg" alt="Profile Pic"></img>
+                    <h1 className='doctor-name'>{doctor.name}</h1>
+                    <h2 className="doctor-degree">{doctor.degree}</h2>
+                    <p className="title-doctor">{doctor.treatmentDomain}</p>
+                    <p>Regd No: <span>{doctor.redgNo}</span></p>
+                    <p className="doctor-address">Addrs: {doctor.address}</p>
+                    
+                    <p>
+                        <button><a href={`tel:${doctor.mobileNo}`}><i class="fas fa-phone-alt"></i> Contact</a></button>
+                        <button><a href={`mailto:${doctor.email}`}><i class="far fa-envelope"></i> Mail</a></button>
+                    </p>
+                </div>
+              ))}
+            </>
+            }
                 
             
         </div>

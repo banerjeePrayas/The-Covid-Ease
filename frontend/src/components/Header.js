@@ -4,8 +4,15 @@ import { Nav, Navbar } from 'react-bootstrap';
 // import { Route } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap';  //Alternative of React-Router for Bootstrap
 // import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+import { useSelector } from 'react-redux'
+
 
 const Header = () => {
+
+    const userLogin = useSelector(state => state.userLogin);
+    const { userInfo } = userLogin;
+
+
     return (
         <header>
             <nav class="navbar navbar-expand-lg">
@@ -64,6 +71,10 @@ const Header = () => {
 
                     </div>
                 </div>
+
+                { userInfo ? (
+                    <p>ADMIN</p>
+                ) : '' }
             </nav>
         </header>
     )

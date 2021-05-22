@@ -499,3 +499,61 @@ footer .link a {
   }
 
 }
+
+
+
+/* BEDS AVAILABILITY */
+.table-bed {
+  color: #f1f1f1 !important;
+  font-weight: bold;
+  font-size: 1rem !important;
+}
+
+.table-bed thead {
+  text-transform: uppercase;
+  text-align: center;
+  background-color: #886CC7 !important;
+}
+
+.table-bed-body .info {
+  color: #000 !important;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.table-bed-body .info a {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 600px)  {
+  .table-bed {
+    font-size: 0.8rem !important;
+  }
+}
+/* For small screen */
+/* .table-active :nth-child(even){
+  background-color: #dcdcdc;
+}
+.table-active :nth-child(odd){
+  background-color: #aaaaaa;
+} */
+
+/* For medium screen */    
+/* @media (min-width: 768px) {
+    .table-active :nth-child(4n), .table-active :nth-child(4n-1) {
+        background: #dcdcdc;
+    }
+    .table-active :nth-child(4n-2), .table-active :nth-child(4n-3) {
+        background: #aaaaaa;
+    }
+} */
+
+/* For large screen */
+/* @media (min-width: 992px) {
+    .table-active :nth-child(6n), .table-active :nth-child(6n-1), .table-active :nth-child(6n-2) {
+        background: #dcdcdc;
+    }
+    .table-active :nth-child(6n-3), .table-active :nth-child(6n-4), .table-active :nth-child(6n-5) {
+        background: #aaaaaa;
+    }
+} */
