@@ -10,6 +10,7 @@ import DoctorsScreen from './screens/DoctorsScreen.js'
 import AboutusScreen from './screens/AboutusScreen.js'
 import HelpScreen from './screens/HelpScreen.js'  
 import AdminLoginScreen from './screens/AdminLoginScreen.js'  
+import AdminPanelScreen from './screens/AdminPanelScreen.js'  
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path='/about-us' component={AboutusScreen} />
           <Route path='/help' component={HelpScreen} />
           <Route path='/admin' component={AdminLoginScreen} />
+          <Route path='/adminPanel' component={AdminPanelScreen} />
         </main>
 
       {/* </Container> */}

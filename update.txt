@@ -15,6 +15,11 @@ git branch -M main
 git push -u origin main
 
 
+git pull origin main 
+git add .
+git commit -m "Frontend Added"
+HEAD:master
+
 
 Tawt.to:-
 <!--Start of Tawk.to Script-->

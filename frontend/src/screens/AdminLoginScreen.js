@@ -1,27 +1,57 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Button } from 'react-bootstrap'
+import { adminLogin } from '../actions/userActions.js'
+import Message from '../components/Message'
+import Loader from '../components/Loader'
 
-const AdminLoginScreen = () => {
+
+const AdminLoginScreen = ({ location, history }) => {
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const dispatch = useDispatch();
+
+    const userLogin = useSelector(state => state.userLogin);
+    const { loading, error, userInfo } = userLogin;
+
+    const redirect = '/adminPanel';
+    // location.search ? location.search.split('=')[1] : '/'
+
+    useEffect(() => {
+        if(userInfo) {
+            history.push(redirect);
+        }
+    }, [history, userInfo, redirect])
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+        // DISPATCH LOGIN
+        dispatch(adminLogin(email, password))
+    }
+
+
     return (
         <>
-            <form>
+            { error && <Message variant='danger'>{ error }</Message> }
+            { loading && <Loader /> }
+            <form onSubmit={submitHandler}> 
             <fieldset>
-                <legend>Legend</legend>
-                <div class="form-group row">
-                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                    <input type="text" readonly="" class="form-control-plaintext" id="staticEmail" value="email@example.com"></input>
-                </div>
-                </div>
+               
                 <div class="form-group">
                 <label for="exampleInputEmail1" class="form-label mt-4">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"></input>
+                <input type="email" class="form-control" value={email} onChange={(e) => setEmail(e.target.value)} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"></input>
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
                 <div class="form-group">
                 <label for="exampleInputPassword1" class="form-label mt-4">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"></input>
+                <input type="password" class="form-control" value={password} onChange={(e) => setPassword(e.target.value)} id="exampleInputPassword1" placeholder="Password"></input>
                 </div>
             </fieldset>
+            <Button  type='submit' className='btn-sm' variant='success'>
+                                    Login IN
+            </Button>
             </form>
         </>
     )
