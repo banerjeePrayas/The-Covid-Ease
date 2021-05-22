@@ -35,6 +35,22 @@ span {
   color: #6c757d !important;
   font-weight: 900;
 }
+/* 
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to { 
+    -webkit-transform: rotate(360deg);
+  }
+} */
+
+/* .navbar .navbar-brand img .rotate 
+{
+  transform: rotate(360deg);
+} */
+
+
 
 .navbar .container-fluid .navbar-brand:hover {
   color: #7695F3;
@@ -44,6 +60,10 @@ span {
   color: #7695F3;
 }
 
+.navbar .container-fluid .navbar-toggler span .navbar-toggler-icon {
+  color: #6c757d;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -51,13 +71,21 @@ code {
 
 /* WELCOME BANNER */
 
-.welcome-banner-img {
+.welcome-banner .welcome-banner-img {
   width: 100vw;
   height: 70vh;
-  object-fit: fill;
-  background-position: center;
+  object-fit: cover;
+  background-position: center center;
   background-repeat: no-repeat;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+}
+
+@media screen and (max-width: 600px) {
+  .welcome-banner .welcome-banner-img {
+    height: 70vh;
+
+  }
+
 }
 
 
@@ -323,4 +351,151 @@ svg {
 
 footer .link a {
   font-weight: 900 !important;
+}
+
+
+
+/* DOCTOR's SCREEN */
+.doctor-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-top: 2rem;
+}
+.card-doctor {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  border-radius: 5px !important;
+}
+
+.card-doctor img {
+  width: 100%;
+}
+
+.doctor-name {
+  text-transform: uppercase;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+.doctor-degree {
+  color: grey;
+  font-size: 14px;
+  font-weight: bolder;
+  font-style: italic;
+}
+
+.title-doctor {
+  color: #4c75f299;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.doctor-address {
+  color: #db5581;
+  font-size: 14px;
+  font-weight: bolder;
+}
+
+.card-doctor button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  margin-left: 0.3rem;
+  margin-right: 0.3rem;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 40%;
+  font-size: 14px;
+  border-radius: 10px;
+}
+
+.card-doctor button a {
+  text-decoration: none;
+  color: #d9e3f1;
+}
+
+.card-doctor .a-doctor {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+.card-doctor button:hover, .a-doctor:hover {
+  opacity: 0.7;
+}
+
+
+@media screen and (max-width: 600px)  {
+  .doctor-layout {
+    grid-template-columns: 1fr;
+    grid-row: 1rem;
+  }
+}
+
+
+
+/* HELP SECTION */
+.help-banner{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+   height:75vh;
+ /* background:url(https://images.unsplash.com/photo-1605214178469-178b98bb29fb?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzR8fGNvdmlkfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60); */
+  background-size:cover;
+  background-position:center;
+}
+
+.help-banner h2 {
+  font-size: 5rem;
+  font-weight: bolder;
+  text-align: left;
+}
+
+.help-banner .help-banner-main .btn {
+  padding: 1rem 4rem !important;
+  background-color: #886CC7;
+  color: #f1f1f1;
+  margin-top: 1rem;
+}
+
+.help-banner .help-banner-main .btn:hover {
+  background-color: #d9e3f1;
+  color: #886CC7;
+}
+
+@media screen and (max-width: 600px)  {
+  .help-banner {
+    object-fit: cover;
+  }
+  .help-banner h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .help-banner h3, .help-banner h4  {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .help-banner .help-banner-main .btn {
+    padding: 1rem 2rem !important;
+    background-color: #886CC7;
+    color: #f1f1f1;
+    text-align: center;
+    margin: auto;
+    margin-top: 1rem;
+  }
+  
+  .help-banner .help-banner-main .btn:hover {
+    background-color: #d9e3f1;
+    color: #886CC7;
+  }
+
 }
