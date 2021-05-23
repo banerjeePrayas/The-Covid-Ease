@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Button } from 'react-bootstrap'
+import { Button, Container } from 'react-bootstrap'
 import { adminLogin } from '../actions/userActions.js'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
@@ -36,6 +36,7 @@ const AdminLoginScreen = ({ location, history }) => {
         <>
             { error && <Message variant='danger'>{ error }</Message> }
             { loading && <Loader /> }
+            <Container>
             <form onSubmit={submitHandler}> 
             <fieldset>
                
@@ -53,6 +54,7 @@ const AdminLoginScreen = ({ location, history }) => {
                                     Login IN
             </Button>
             </form>
+            </Container>
         </>
     )
 }

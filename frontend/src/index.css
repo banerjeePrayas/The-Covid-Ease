@@ -557,3 +557,40 @@ footer .link a {
         background: #aaaaaa;
     }
 } */
+
+
+
+/* RED VOLUNTEERS PAGE */
+.card-red {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.card-red .card-red-details {
+  max-width: 20rem;
+  margin: 1rem 2rem;
+  padding: 1rem 0rem;
+  background-image: linear-gradient(to bottom right, red, black);
+  color: #f1f1f1;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-red .card-red-details:hover {
+  opacity: 0.7;
+}
+
+.card-red .card-red-details h1 {
+  font-size: 1.3rem;
+
+}
+
+@media screen and (max-width: 600px) {
+  .card-red {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0.5rem;
+    grid-row-gap: 0.5rem;
+  
+  }
+}

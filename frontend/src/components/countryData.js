@@ -73,7 +73,7 @@ const CountryData = () => {
                 </LinkContainer>
             </div>
 
-            <div className="help-banner"  style={{ 
+            {/* <div className="help-banner"  style={{ 
                     backgroundImage: `url(${process.env.PUBLIC_URL + '/images/red-volunteer.jpg'})`,
                     backgroundRepeat: 'no-repeat',
                 }}>
@@ -86,7 +86,7 @@ const CountryData = () => {
                 </Button>
                 </div>
                 </div>
-            </div>
+            </div> */}
         </>
     )
 }
