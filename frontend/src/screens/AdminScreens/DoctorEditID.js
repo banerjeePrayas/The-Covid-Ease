@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { Button, Container } from 'react-bootstrap'
-import { updateHospital } from '../../actions/bedActions'
+import { Button, Container, Form } from 'react-bootstrap'
+import { updateDoctor } from '../../actions/doctorActions'
 import { HOSPITAL_UPDATE_RESET } from '../../constants/bedConstants';
 import Loader from '../../components/Loader'
+import axios from 'axios'
 import Message from '../../components/Message'
+import { DOCTOR_UPDATE_RESET } from '../../constants/doctorConstants';
 
 const DoctorEditID = ({ history, match }) => {
 
@@ -21,11 +23,12 @@ const DoctorEditID = ({ history, match }) => {
     const [email, setEmail] = useState('')
     const [address, setAddress] = useState('')
     const [onlineConsultancyFees, setFees] = useState('')
+    const [uploading, setUploading] = useState(false)
 
 
 
-    const hospitalUpdate = useSelector((state) => state.hospitalUpdate)
-    const { loading: loadingUpdate, error: errorUpdate, success: successUpdate } = hospitalUpdate
+    const doctorUpdate = useSelector((state) => state.doctorUpdate)
+    const { loading: loadingUpdate, error: errorUpdate, success: successUpdate } = doctorUpdate
 
     const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin;
@@ -40,8 +43,8 @@ const DoctorEditID = ({ history, match }) => {
         
         if(successUpdate) {
             console.log('Updated');
-            dispatch({ type: HOSPITAL_UPDATE_RESET })
-            history.push('/admin/bed-availabilityList')
+            dispatch({ type:DOCTOR_UPDATE_RESET })
+            history.push('/admin/doctor-consultancyList')
         } else {
             loading = true;
             fetch(`/api/doctors-consultancy/${doctorId}`)   
@@ -69,9 +72,36 @@ const DoctorEditID = ({ history, match }) => {
     }, [history, userInfo, successUpdate, dispatch])
 
 
+    const uploadFileHandler = async (e) => {
+        const file = e.target.files[0]
+        // console.log(file);
+        const formData = new FormData()
+        formData.append('image', file)
+        setUploading(true)
+    
+        try {
+          const config = {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          }
+    
+          const { data } = await axios.post('/api/upload', formData, config)
+          console.log(data);  
+    
+          setImage(data)
+          setUploading(false)
+        } catch (error) {
+          console.error(error)
+          setUploading(false)
+        }
+      }
+
+
     const submitHandler = (e) => {
         e.preventDefault()
-        // dispatch(updateHospital({ _id: hospitalId, name, contactNo, bedAvailable, address }))
+        dispatch(updateDoctor({ _id: doctorId, name, degree, image, treatmentDomain,
+             redgNo, mobileNo, email, address, onlineConsultancyFees }));
       }
 
 
@@ -97,11 +127,24 @@ const DoctorEditID = ({ history, match }) => {
                         <label for="exampleInputEmail2" class="form-label mt-4">Degree</label>
                         <input type="name" value={degree} onChange={(e) => setDegree(e.target.value)} class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Enter Contact No of the Hospital"></input>
                     </div>
-                    <div class="form-group">
-                        <label for="formFile" class="form-label mt-4">Choose Your Profile Image</label>
-                        <input class="form-control" value={image} onChange={(e) => setImage(e.target.value)} type="text" id="formFile"></input>
-                        <input class="form-control" type="file" id="formFile"></input>
-                    </div>
+                    <Form.Group controlId='image'>
+                  <Form.Label>Image</Form.Label>
+                  <Form.Control
+                    type='text'
+                    placeholder='Enter image url'
+                    value={image}
+                    onChange={(e) => setImage(e.target.value)}
+                  ></Form.Control>
+                  <Form.File
+                    id='image-file'
+                    type='file'
+                    name='image'
+                    label='Choose File'
+                    custom
+                    onChange={uploadFileHandler}
+                  ></Form.File>
+                  {uploading && <Loader />}
+                </Form.Group>
                     <div class="form-group">
                         <label for="exampleInputEmail3" class="form-label mt-4">Treatment Domain</label>
                         <input type="text" value={treatmentDomain} onChange={(e) => setTreatmentDomain(e.target.value)} class="form-control" id="exampleInputEmail3" placeholder="Treatment Domain..."></input>

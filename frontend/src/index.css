@@ -376,6 +376,8 @@ footer .link a {
 
 .card-doctor img {
   width: 100%;
+  height: 15vw;
+  object-fit: cover;
 }
 
 .doctor-name {
@@ -441,6 +443,11 @@ footer .link a {
     grid-template-columns: 1fr;
     grid-row: 1rem;
   }
+  .card-doctor img {
+    width: 100%;
+    height: 30vw;
+    object-fit: cover;
+  }
 }
 
 
@@ -470,9 +477,30 @@ footer .link a {
 }
 
 .help-banner .help-banner-main .btn:hover {
-  background-color: #d9e3f1;
-  color: #886CC7;
+  background-color: #d9e3f1 !important;
+  color: #886CC7 !important;
 }
+
+.help-banner .help-banner-main .btn .btn-a {
+  text-decoration: none;
+  color: #f1f1f1;
+}
+
+.help-banner .help-banner-main .btn .btn-a:hover {
+  background-color: #d9e3f1 !important;
+  color: #886CC7 !important;
+}
+
+.google-form-div {
+  margin: auto;
+  width: 50%;
+}
+
+.google-form {
+  width: 740px;
+}
+
+
 
 @media screen and (max-width: 600px)  {
   .help-banner {
@@ -499,7 +527,18 @@ footer .link a {
   
   .help-banner .help-banner-main .btn:hover {
     background-color: #d9e3f1;
-    color: #886CC7;
+    color: #0c0c0e;
+  }
+
+  .google-form-div {
+    margin: 0;
+    width: 0%;
+  }
+  
+  .google-form {
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
   }
 
 }

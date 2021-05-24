@@ -6,7 +6,7 @@ import { LinkContainer } from 'react-router-bootstrap'
 import { Button } from 'react-bootstrap'
 import Message from '../../components/Message';
 import Loader from '../../components/Loader';
-import { listHospitals, deleteHospital } from '../../actions/bedActions.js'
+import { deleteDoctor } from '../../actions/doctorActions'
 
 const override = css`
   display: block;
@@ -34,8 +34,8 @@ const DoctorEdit = ({ history }) => {
     // const hospitalList = useSelector((state) => state.hospitalList)
     // const { loading, error, hospitals } = hospitalList;
 
-    const hospitalDelete = useSelector((state) => state.hospitalDelete)
-    const { loading: loadingDelete, error: errorDelete, success: successDelete } = hospitalDelete;
+    const doctorDelete = useSelector((state) => state.doctorDelete)
+    const { loading: loadingDelete, error: errorDelete, success: successDelete } = doctorDelete;
 
     const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin;
@@ -58,7 +58,7 @@ const DoctorEdit = ({ history }) => {
         });
 
         
-    }, [history, successDelete, userInfo])
+    }, [history, userInfo, successDelete])
 
     // if(successDelete) {
     //     history.push('/adminPanel')
@@ -66,7 +66,7 @@ const DoctorEdit = ({ history }) => {
 
     const deleteHandler = (id) => {
         if(window.confirm('Are You Sure?')) {
-            dispatch(deleteHospital(id))
+            dispatch(deleteDoctor(id))
         }
 
        
