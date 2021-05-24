@@ -58,7 +58,7 @@ const BedDataEdit = ({ history }) => {
         });
 
         
-    }, [history, successDelete, userInfo])
+    }, [history, userInfo, successDelete])
 
     // if(successDelete) {
     //     history.push('/adminPanel')

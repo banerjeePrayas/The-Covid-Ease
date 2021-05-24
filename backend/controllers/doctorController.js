@@ -81,11 +81,33 @@ const getDoctorById = asyncHandler(async(req, res) => {
     }
 })
 
+// @desc      Delete a Doctor by ID
+// @route     DELETE  /api/doctors-consultancyList/:id
+// @access    Private/admin
+const deleteDoctor = asyncHandler(async(req, res) => {
+
+    const doctor = await Doctors.findById(req.params.id)
+    
+    if(doctor) {
+        await doctor.remove();
+        res.json({
+            message: 'Doctor Deleted'
+        })
+    } else {
+        res.status(404).json({ message: 'Doctor Not Found' });
+    }
+})
+
+
+
+
+
 
 
 export {
     getAllDoctors,
     createDoctorProfile,
     updateDoctorProfile,
-    getDoctorById
+    getDoctorById,
+    deleteDoctor
 }

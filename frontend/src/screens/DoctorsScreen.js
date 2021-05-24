@@ -85,7 +85,7 @@ const DoctorsScreen = () => {
             (
                doctors.map((doctor) => (
                 <div className="card-doctor" key={doctor._id}>
-                    <img src="/images/doctor-profile.jpg" alt="Profile Pic"></img>
+                    <img src={doctor.image} alt={doctor.name}></img>
                     <h1 className='doctor-name'>{doctor.name}</h1>
                     <h2 className="doctor-degree">{doctor.degree}</h2>
                     <p className="title-doctor">{doctor.treatmentDomain}</p>
