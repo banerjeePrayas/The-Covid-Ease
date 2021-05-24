@@ -3,12 +3,31 @@ import React, { useState, useEffect } from 'react';
 // import { LinkContainer } from 'react-router-bootstrap'
 // import { Link } from 'react-router-dom';
 // import { Table, Button, Row, Col } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux'
-import Message from '../components/Message'
-import Loader from '../components/Loader'
-import { listDoctors } from '../actions/doctorActions.js'
+import HashLoader from 'react-spinners/HashLoader'
+import { css } from "@emotion/react";
+
+const override = css`
+  display: block;
+  border-color: red;
+  text-allign: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
 
 const DoctorsScreen = () => {
+
+  const [isLoading, setLoading] = useState(false);
+
+
+    useEffect(() => {
+        setLoading(true);
+        setTimeout(() => {
+        setLoading(false);
+        }, 2000)
+    }, []);
+
 
     // const dispatch = useDispatch();
 
@@ -43,7 +62,6 @@ const DoctorsScreen = () => {
     // }
 
     const [doctors, setDoctors] = useState([]);
-    const [loading, setLoading] = useState(false);
     const [error, setError] = useState();
 
   useEffect(() => {
@@ -62,10 +80,10 @@ const DoctorsScreen = () => {
 
     return (
         <div className='doctor-layout'>
-           { loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : 
+          { isLoading ? ( <HashLoader color={"#123abc"} loading={isLoading} css={override}  size={150} /> ) : 
 
-            <>
-              { doctors.map((doctor) => (
+            (
+               doctors.map((doctor) => (
                 <div className="card-doctor" key={doctor._id}>
                     <img src="/images/doctor-profile.jpg" alt="Profile Pic"></img>
                     <h1 className='doctor-name'>{doctor.name}</h1>
@@ -79,8 +97,7 @@ const DoctorsScreen = () => {
                         <button><a href={`mailto:${doctor.email}`}><i class="far fa-envelope"></i> Mail</a></button>
                     </p>
                 </div>
-              ))}
-            </>
+              )))
             }
                 
             

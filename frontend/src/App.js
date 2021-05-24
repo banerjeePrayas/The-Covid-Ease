@@ -13,6 +13,10 @@ import HelpScreen from './screens/HelpScreen.js'
 import AdminLoginScreen from './screens/AdminLoginScreen.js'  
 import AdminPanelScreen from './screens/AdminPanelScreen.js'  
 import RedVolunteersScreen from './screens/RedVolunteersScreen.js'  
+import BedDataEdit from './screens/AdminScreens/BedDataEdit.js'  
+import BedDataEditID from './screens/AdminScreens/BedDataEditID.js'  
+import DoctorEdit from './screens/AdminScreens/DoctorEdit.js'  
+import DoctorEditID from './screens/AdminScreens/DoctorEditID.js'  
 import HashLoader from 'react-spinners/HashLoader'
 import { css } from "@emotion/react";
 
@@ -65,9 +69,13 @@ function App() {
           <Route path='/doctors-consultancy' component={DoctorsScreen} />
           <Route path='/about-us' component={AboutusScreen} />
           <Route path='/help' component={HelpScreen} />
-          <Route path='/admin' component={AdminLoginScreen} />
+          <Route path='/admin' component={AdminLoginScreen} exact />
           <Route path='/adminPanel' component={AdminPanelScreen} />
           <Route path='/redVolunteersWB' component={RedVolunteersScreen} />
+          <Route path='/admin/bed-availabilityList' component={BedDataEdit} exact />
+          <Route path='/admin/doctor-consultancyList' component={DoctorEdit} exact />
+          <Route path='/admin/bed-availabilityEdit/:id/edit' component={BedDataEditID} exact />
+          <Route path='/admin/doctor-consultancyList/:id/edit' component={DoctorEditID} exact />
         </main>
 
       {/* </Container> */}

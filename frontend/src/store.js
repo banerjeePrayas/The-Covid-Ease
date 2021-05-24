@@ -6,10 +6,14 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { doctorListReducer } from './reducers/doctorReducers.js';
 import { userLoginReducer } from './reducers/userReducers.js';
+import { HospitalListReducer, hospitalDeleteReducer, hospitalUpdateReducer } from './reducers/bedReducers.js';
 
 const reducer = combineReducers({
     doctorList: doctorListReducer,
-    userLogin: userLoginReducer
+    userLogin: userLoginReducer,
+    hospitalList: HospitalListReducer,
+    hospitalDelete: hospitalDeleteReducer,
+    hospitalUpdate: hospitalUpdateReducer
 });
 
 

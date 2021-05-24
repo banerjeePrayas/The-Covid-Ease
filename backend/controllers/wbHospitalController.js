@@ -31,10 +31,26 @@ const insertWBHospitalData = asyncHandler(async(req, res) => {
 
 
 
+// @desc      Fetch Single Hospital
+// @route     GET  /api/WB-neds/:id
+// @access    Public
+const getHospitalById = asyncHandler(async(req, res) => {
+
+    const hospital = await wbHospitalData.findById(req.params.id)
+    
+    if(hospital) {
+        res.json(hospital);
+    } else {
+        res.status(404).json({ message: 'Hospital Not Found' });
+    }
+})
+
+
+
 // @desc      Update the Hospital with Bed Details
 // @route     PUT  /api/WB-beds/:id
 // @access    Private/Admin
-const updateStateData = asyncHandler(async(req, res) => {
+const updateHospitalData = asyncHandler(async(req, res) => {
 
    const { name, address, bedAvailable, contactNo } = req.body;
 
@@ -57,8 +73,28 @@ const updateStateData = asyncHandler(async(req, res) => {
 })
 
 
+// @desc      Delete a Hospital by ID
+// @route     DELETE  /api/products/:id
+// @access    Private/admin
+const deleteHospitalData = asyncHandler(async(req, res) => {
+
+    const hospital = await wbHospitalData.findById(req.params.id)
+    
+    if(hospital) {
+        await hospital.remove();
+        res.json({
+            message: 'Hospital Removed'
+        })
+    } else {
+        res.status(404).json({ message: 'Hospital Not Found' });
+    }
+})
+
+
  export {
     getWBBedsData,
     insertWBHospitalData,
-    updateStateData
+    getHospitalById,
+    updateHospitalData,
+    deleteHospitalData
  }
