@@ -15,16 +15,16 @@ const Header = () => {
 
     return (
         <header>
-            <nav class="navbar navbar-expand-lg">
+            <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container-fluid">
                     <LinkContainer to='/'>
                         <Navbar.Brand class="navbar-brand"><img className='rotate' src='/images/covid-svg.svg'></img> Covid-Ease</Navbar.Brand>
                     </LinkContainer>
-                    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                     </button>
 
-                    <div class="navbar-collapse collapse" id="navbarColor02">
+                    <div class="collapse navbar-collapse" id="navbarColor03">
 
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
@@ -43,6 +43,11 @@ const Header = () => {
                             </LinkContainer>
                         </li>
                         <li class="nav-item">
+                            <LinkContainer to='/redVolunteersWB'>
+                                <Nav.Link class="nav-link red" style={{ "color": 'red' }}>Red Volunteers</Nav.Link>
+                            </LinkContainer>
+                        </li>
+                        <li class="nav-item">
                             <LinkContainer to='/about-us'>
                                 <Nav.Link class="nav-link">About</Nav.Link>
                             </LinkContainer>
@@ -52,17 +57,14 @@ const Header = () => {
                                 <Nav.Link class="nav-link">Help</Nav.Link>
                             </LinkContainer>
                         </li>
-                        {/* <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
-          </div>
-                        </li> */}
+                        
                     </ul>
+                    {/* <div className='menu-wrap'>
+                        <input type="checkbox" class="toggler" />
+                            <div class="hamburger">
+                            <div></div>
+                        </div>
+                    </div> */}
 
                     {/* <form class="d-flex">
                         <input class="form-control me-sm-2" type="text" placeholder="Search"></input>
@@ -73,7 +75,7 @@ const Header = () => {
                 </div>
 
                 { userInfo ? (
-                    <p>ADMIN</p>
+                    <LinkContainer to='/adminPanel'><a><i class="far fa-user-circle"></i> ADMIN</a></LinkContainer>
                 ) : '' }
             </nav>
         </header>

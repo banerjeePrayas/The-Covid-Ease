@@ -23,12 +23,12 @@ body {
 a {
   text-decoration: none;
 }
-
+/* 
 span {
   font-weight: 900;
   font-style: italic;
   color: #FF073A;
-}
+} */
 
 .navbar {
   background-color: #f6f6f7 !important;
@@ -63,6 +63,10 @@ span {
 .navbar .container-fluid .navbar-toggler span .navbar-toggler-icon {
   color: #6c757d;
 }
+
+.navbar .container-fluid .navbar-nav .nav-item .red {
+  color: red !important;
+} 
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -561,6 +565,20 @@ footer .link a {
 
 
 /* RED VOLUNTEERS PAGE */
+.red-volunteers-banner {
+  text-align: center;
+}
+.red-volunteers-banner img {
+  background-position: center;
+  background-size: cover;
+  max-width: 30rem;
+  text-align: center;
+}
+.red-volunteers-heading {
+  font-weight: bolder;
+  padding: 0rem 3rem;
+  margin-top: 1rem;
+}
 .card-red {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -568,12 +586,21 @@ footer .link a {
 
 .card-red .card-red-details {
   max-width: 20rem;
-  margin: 1rem 2rem;
+  margin: 0.8rem 1.5rem;
   padding: 1rem 0rem;
   background-image: linear-gradient(to bottom right, red, black);
   color: #f1f1f1;
   cursor: pointer;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-red .card-red-details h1 {
+  margin: 0;
+}
+
+.card-red .card-red-details a {
+  text-decoration: none;
+  color: #f1f1f1;
 }
 
 .card-red .card-red-details:hover {
@@ -592,5 +619,39 @@ footer .link a {
     grid-gap: 0.5rem;
     grid-row-gap: 0.5rem;
   
+  }
+}
+
+
+
+/* ADMIN PANEL */
+.card-adminPanel {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  
+}
+
+.card-adminPanel .card-body {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 1rem 5rem !important;
+  max-width: 20rem;
+}
+
+.card-adminPanel .card-body .btn-sm {
+  margin: 0.5rem;
+  background-color: #886CC7;
+  color: #f1f1f1;
+}
+
+.card-adminPanel .card-body .btn-sm:hover {
+  background-color: #D9E3F1;
+  color: #886CC7;
+}
+
+@media screen and (max-width: 600px) {
+  .card-adminPanel {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: auto !important;
   }
 }

@@ -67,8 +67,25 @@ const updateDoctorProfile = asyncHandler(async(req, res) => {
 
 
 
+// @desc      Fetch Single Doctor
+// @route     GET  /api/doctors-consultancy/:id
+// @access    Public
+const getDoctorById = asyncHandler(async(req, res) => {
+
+    const doctor = await Doctors.findById(req.params.id)
+    
+    if(doctor) {
+        res.json(doctor);
+    } else {
+        res.status(404).json({ message: 'Doctor Not Found' });
+    }
+})
+
+
+
 export {
     getAllDoctors,
     createDoctorProfile,
-    updateDoctorProfile
+    updateDoctorProfile,
+    getDoctorById
 }

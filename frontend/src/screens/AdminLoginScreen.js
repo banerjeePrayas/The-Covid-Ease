@@ -50,7 +50,7 @@ const AdminLoginScreen = ({ location, history }) => {
                 <input type="password" class="form-control" value={password} onChange={(e) => setPassword(e.target.value)} id="exampleInputPassword1" placeholder="Password"></input>
                 </div>
             </fieldset>
-            <Button  type='submit' className='btn-sm' variant='success'>
+            <Button style={{ "marginTop": '1rem', "padding": '1rem 2rem' }}  type='submit' className='btn-sm' variant='success'>
                                     Login IN
             </Button>
             </form>

@@ -1,6 +1,28 @@
 import React, { useState, useEffect } from 'react';
+import HashLoader from 'react-spinners/HashLoader'
+import { css } from "@emotion/react";
+
+const override = css`
+  display: block;
+  border-color: red;
+  text-allign: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
 
 const BedAvailabilityScreen = () => {
+
+    const [isLoading, setLoading] = useState(false);
+
+
+    useEffect(() => {
+        setLoading(true);
+        setTimeout(() => {
+        setLoading(false);
+        }, 2000)
+    }, []);
 
     const [beds, setBeds] = useState([]);
 
@@ -18,7 +40,10 @@ const BedAvailabilityScreen = () => {
 
     return (
         <>
-           <table class="table table-hover table-bed">
+            { isLoading ? ( <HashLoader color={"#123abc"} loading={isLoading} css={override}  size={150} /> ) : (
+
+
+            <table class="table table-hover table-bed">
             <thead>
                 <tr>
                 <th scope="col">Name</th>
@@ -36,63 +61,10 @@ const BedAvailabilityScreen = () => {
                     <td><a href={`tel:${bed.contactNo}`}><i class="fas fa-phone-alt"></i> Contact</a></td>
                     </tr>
                 )) }
-                
-                {/* <tr>
-                <th scope="row">Default</th>
-                <td>Column content</td>
-                <td>Column content</td>
-                <td>Column content</td>
-                </tr>
-                <tr class="table-primary">
-                <th scope="row">Primary</th>
-                <td>Column content</td>
-                <td>Column content</td>
-                <td>Column content</td>
-                </tr>
-                <tr class="table-secondary">
-                <th scope="row">Secondary</th>
-                <td>Column content</td>
-                <td>Column content</td>
-                <td>Column content</td>
-                </tr>
-                <tr class="table-success">
-                <th scope="row">Success</th>
-                <td>Column content</td>
-                <td>Column content</td>
-                <td>Column content</td>
-                </tr>
-                <tr class="table-danger">
-                <th scope="row">Danger</th>
-                <td>Column content</td>
-                <td>Column content</td>
-                <td>Column content</td>
-                </tr>
-                <tr class="table-warning">
-                <th scope="row">Warning</th>
-                <td>Column content</td>
-                <td>Column content</td>
-                <td>Column content</td>
-                </tr>
-                <tr class="table-info">
-                <th scope="row">Info</th>
-                <td>Column content</td>
-                <td>Column content</td>
-                <td>Column content</td>
-                </tr>
-                <tr class="table-light">
-                <th scope="row">Light</th>
-                <td>Column content</td>
-                <td>Column content</td>
-                <td>Column content</td>
-                </tr>
-                <tr class="table-dark">
-                <th scope="row">Dark</th>
-                <td>Column content</td>
-                <td>Column content</td>
-                <td>Column content</td>
-                </tr> */}
             </tbody>
             </table> 
+            )}
+           
         </>
     )
 }
