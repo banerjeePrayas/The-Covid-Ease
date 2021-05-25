@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './store.js';
+import Navbar from './Navbar.js';
 import './index.css';
 import './bootstrap.min.css';
 import './menu.css';
