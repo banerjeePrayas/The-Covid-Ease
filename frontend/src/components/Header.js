@@ -120,6 +120,14 @@ const Header = () => {
                 <a class="active" href="#">Help</a>
             </LinkContainer>
         </li>
+
+        { userInfo ? (
+            <li>
+            <LinkContainer to='/adminPanel'>
+                <a class="active" href="#">Admin</a>
+            </LinkContainer>
+        </li>
+        ) : '' }
       </ul>
     </nav>
 

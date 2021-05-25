@@ -5,7 +5,7 @@ import { LinkContainer } from 'react-router-bootstrap'
 const ResourcesCard = () => {
     return (
         <Container>
-            <h1>Your One Stop Solution for All Covid Verified Resources</h1>
+            <h1>Your One Stop Solution for All Verified Covid Resources <i class="fas fa-check-circle" style={{ color: 'green' }}></i></h1>
             <div className='container'>
                 <div className='card-resources'>
                     <div className='content'>

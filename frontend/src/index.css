@@ -905,6 +905,7 @@ input[type="checkbox"]{
     text-align: center;
     display: block;
     transition: all 0.3s ease;
+    z-index: 5;
   }
   #click:checked ~ ul{
     left: 0;
