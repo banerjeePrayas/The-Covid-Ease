@@ -39,7 +39,8 @@ const AdminLoginScreen = ({ location, history }) => {
             <Container>
             <form onSubmit={submitHandler}> 
             <fieldset>
-               
+            <div style={{"textAlign": 'center'}}><img className='rotate' src='/images/covid-svg.svg'></img> Covid Ease</div>
+
                 <div class="form-group">
                 <label for="exampleInputEmail1" class="form-label mt-4">Email address</label>
                 <input type="email" class="form-control" value={email} onChange={(e) => setEmail(e.target.value)} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"></input>
