@@ -23,12 +23,12 @@ body {
 a {
   text-decoration: none;
 }
-/* 
-span {
-  font-weight: 900;
-  font-style: italic;
-  color: #FF073A;
-} */
+
+span  .span-heading {
+  font-weight: 900 !important;
+  font-style: italic !important;
+  color: #FF073A !important;
+}
 
 .navbar {
   background-color: #f6f6f7 !important;
@@ -78,10 +78,14 @@ code {
 .welcome-banner .welcome-banner-img {
   width: 100vw;
   height: 70vh;
-  object-fit: cover;
+  object-fit: contain;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) no-repeat center center fixed;
 }
 
 @media screen and (max-width: 600px) {
@@ -256,6 +260,13 @@ code {
 .grid-container-doctor .grid-link {
   text-align: center;
 }
+
+.grid-container-doctor .grid-link span {
+  font-weight: 900 !important;
+  font-style: italic !important;
+  color: #FF073A !important;
+}
+
 
 @media screen and (max-width: 600px) {
 
@@ -650,6 +661,13 @@ footer .link a {
   font-size: 1.3rem;
 
 }
+
+.red-volunteers .red-volunteers-heading span {
+  font-weight: 900 !important;
+  font-style: italic !important;
+  color: #FF073A !important;
+}
+
 
 @media screen and (max-width: 600px) {
   .card-red {
