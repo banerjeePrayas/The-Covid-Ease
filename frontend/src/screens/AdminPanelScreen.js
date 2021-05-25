@@ -45,7 +45,7 @@ const AdminPanelScreen = ({ history }) => {
                 
                 <LinkContainer to='/doctors-consultancy'>
                         <Button className='btn-sm' variant='success'>
-                                All Data    
+                                Add Bed    
                         </Button>
                 </LinkContainer>
                 <LinkContainer to='/admin/bed-availabilityList'>
@@ -59,7 +59,7 @@ const AdminPanelScreen = ({ history }) => {
                 
                 <LinkContainer to='/doctors-consultancy'>
                         <Button className='btn-sm' variant='success'>
-                                    All Doctors
+                                    Add Doctor
                         </Button>
                 </LinkContainer>
                 <LinkContainer to='/admin/doctor-consultancyList'>
@@ -73,10 +73,10 @@ const AdminPanelScreen = ({ history }) => {
                 
                 <LinkContainer to='/doctors-consultancy'>
                         <Button className='btn-sm' variant='success'>
-                                    All Users
+                                    Add User
                         </Button>
                 </LinkContainer>
-                <LinkContainer to='/doctors-consultancy'>
+                <LinkContainer to='/admin/adminUserList'>
                         <Button className='btn-sm' variant='success'>
                                     Edit Users
                         </Button>

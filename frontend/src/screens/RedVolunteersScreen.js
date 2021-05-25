@@ -4,13 +4,11 @@ import React from 'react'
 const RedVolunteersScreen = () => {
     return (
         <div className='red-volunteers'>
-            <div className='welcome-banner red-volunteers-banner'>
-                {/* <img className='welcome-banner-img'  src='/images/health-svg.png'></img> */}
+            {/* <div className='welcome-banner red-volunteers-banner'>
                 <img style={{"backgroundPosition": 'center', "backgroundSize": 'cover'}} className='welcome-banner-img'  src='/images/covid-canteen.jpg'></img>
 
-                {/* <img className='welcome-banner-img' src='/images/largest-vaccine-banner.jpg'></img> */}
-            </div>
-            <h2 className='red-volunteers-heading'>Want Help from Red Volunteers in <span>West Bengal </span> ?</h2>
+            </div> */}
+            <h2 className='red-volunteers-heading'>Want Help from Red Volunteers in <span className='span-heading'>West Bengal </span> ?</h2>
             <p className='red-volunteers-heading'>Select Your District and Find the Nearest <span>Red Volunteers</span>.</p>
             <div className='card-red'>
                 <div className="card card-red-details">

@@ -5,7 +5,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { doctorListReducer, doctorUpdateReducer, doctorDeleteReducer } from './reducers/doctorReducers.js';
-import { userLoginReducer } from './reducers/userReducers.js';
+import { userLoginReducer, userDeleteReducer, userUpdateReducer } from './reducers/userReducers.js';
 import { HospitalListReducer, hospitalDeleteReducer, hospitalUpdateReducer } from './reducers/bedReducers.js';
 
 const reducer = combineReducers({
@@ -13,6 +13,8 @@ const reducer = combineReducers({
     doctorUpdate: doctorUpdateReducer,
     doctorDelete: doctorDeleteReducer,
     userLogin: userLoginReducer,
+    userDelete: userDeleteReducer,
+    userUpdate: userUpdateReducer,
     hospitalList: HospitalListReducer,
     hospitalDelete: hospitalDeleteReducer,
     hospitalUpdate: hospitalUpdateReducer
