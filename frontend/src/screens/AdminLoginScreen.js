@@ -34,7 +34,7 @@ const AdminLoginScreen = ({ location, history }) => {
 
     return (
         <>
-            { error && <Message variant='danger'>{ error }</Message> }
+            { error && <Message variant='danger'>Invalid Username or Password</Message> }
             { loading && <Loader /> }
             <Container>
             <form onSubmit={submitHandler}> 
