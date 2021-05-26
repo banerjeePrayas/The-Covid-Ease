@@ -390,6 +390,7 @@ footer .link a {
   width: 100%;
   height: 15vw;
   object-fit: cover;
+  overflow: hidden;
 }
 
 .doctor-name {
@@ -833,6 +834,21 @@ footer .link a {
 
 
 
+
+/* BUGS REPORT SECTION */
+/* .bugs-banner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.bugs-image {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+} */
+
+
+
 /* HEADER */
 nav{
   display: flex;
@@ -855,6 +871,7 @@ nav ul{
   display: flex;
   flex-wrap: wrap;
   list-style: none;
+  margin-bottom: 0 !important;
 }
 nav ul li{
   margin: 0 5px;
@@ -888,7 +905,7 @@ input[type="checkbox"]{
     padding: 0 40px 0 50px;
   }
 }
-@media (max-width: 920px) {
+@media (max-width: 1200px) {
   nav .menu-btn i{
     display: block;
   }
@@ -905,6 +922,7 @@ input[type="checkbox"]{
     text-align: center;
     display: block;
     transition: all 0.3s ease;
+    z-index: 5;
   }
   #click:checked ~ ul{
     left: 0;
@@ -913,7 +931,7 @@ input[type="checkbox"]{
     width: 100%;
     margin: 40px 0;
   }
-  nav ul li a{
+  #click:checked ~ nav ul li a{
     width: 100%;
     margin-left: -100%;
     display: block;

@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react';
+import { Loader } from 'react-feather';
 import './statewise.css';
 
 const StatewiseData = () => {
 
     const [ data, setData ] = useState([]);
+    const [ loading, setLoading ] = useState(false);
 
 
     const getCovidData = async() => {
         try {
+            setLoading(true);
             const response = await fetch('https://api.covid19india.org/data.json');
 
             const actualData = await response.json();
-            console.log(actualData);
             setData(actualData.statewise)
+            setLoading(false);
         } catch (error) {
             console.log(error);
         }
@@ -27,7 +30,8 @@ const StatewiseData = () => {
     return (
         <>
 
-            <div className='container-fluid mt-5'>
+            { loading ? <Loader /> : (
+                <div className='container-fluid mt-5'>
                 {/* <div className='MapSwitcher-div'>
                     <div className='MapSwitcher'>
                         <div className='highlight'></div>
@@ -77,6 +81,7 @@ const StatewiseData = () => {
                     </table>
                 </div>
             </div>
+            )  }
         </>
     )
 }
