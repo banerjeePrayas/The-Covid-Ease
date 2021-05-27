@@ -5,6 +5,7 @@ import { updateHospital } from '../../actions/bedActions'
 import { HOSPITAL_UPDATE_RESET } from '../../constants/bedConstants';
 import Loader from '../../components/Loader'
 import Message from '../../components/Message'
+import Meta from '../../components/Meta';
 
 const BedDataEditID = ({ history, match }) => {
 
@@ -67,6 +68,8 @@ const BedDataEditID = ({ history, match }) => {
 
     return (
         <>
+        <Meta title={name} description='Admin Hospital Beds Page' />
+
             <Container>
             { loadingUpdate && <Loader /> }
 

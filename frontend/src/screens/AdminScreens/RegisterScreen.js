@@ -3,7 +3,7 @@ import { Form, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../../components/Message'
 import Loader from '../../components/Loader'
-// import FormContainer from '../components/FormContainer'
+import Meta from '../../components/Meta';
 import { register } from '../../actions/userActions.js'
 
 const RegisterScreen = ({ location, history }) => {
@@ -41,6 +41,8 @@ const redirect = '/';
   return (
     // <Container className='container'>
     <div className='register-form'>
+      <Meta title='Admin Register | The-Covid-Ease' description='Admin Register Page' />
+
       <h1>Regsiter New Admin</h1>
       {message && <Message variant='danger'>{message}</Message>}
       {error && <Message variant='danger'>{error}</Message>}

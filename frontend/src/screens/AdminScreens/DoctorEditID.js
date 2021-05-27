@@ -6,6 +6,7 @@ import { HOSPITAL_UPDATE_RESET } from '../../constants/bedConstants';
 import Loader from '../../components/Loader'
 import axios from 'axios'
 import Message from '../../components/Message'
+import Meta from '../../components/Meta';
 import { DOCTOR_UPDATE_RESET } from '../../constants/doctorConstants';
 
 const DoctorEditID = ({ history, match }) => {
@@ -107,6 +108,8 @@ const DoctorEditID = ({ history, match }) => {
 
     return (
         <>
+        <Meta title={name} description='Admin Doctors Profile' />
+
             <Container>
             { loadingUpdate && <Loader /> }
 
