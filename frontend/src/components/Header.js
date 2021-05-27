@@ -1,17 +1,21 @@
 /* eslint-disable react/jsx-no-undef */
 import React from 'react';
-import { Nav, Navbar } from 'react-bootstrap';
+import { NavDropdown } from 'react-bootstrap';
 // import { Route } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap';  //Alternative of React-Router for Bootstrap
-// import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { logout } from '../actions/userActions';
 
 
 const Header = () => {
+    const dispatch = useDispatch()
 
     const userLogin = useSelector(state => state.userLogin);
     const { userInfo } = userLogin;
 
+    const logoutHandler = () => {
+        dispatch(logout())
+    }
 
     return (
         // <header>
@@ -122,11 +126,12 @@ const Header = () => {
         </li>
 
         { userInfo ? (
-            <li>
-            <LinkContainer to='/adminPanel'>
-                <a class="active" href="#">Admin</a>
-            </LinkContainer>
-        </li>
+            <NavDropdown title="Admin" id="basic-nav-dropdown">
+                <LinkContainer  to='/adminPanel'>
+                    <NavDropdown.Item>Dashboard</NavDropdown.Item>
+                </LinkContainer>
+                <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
+            </NavDropdown>
         ) : '' }
       </ul>
     </nav>

@@ -1,11 +1,13 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap';
+import Meta from '../components/Meta';
 
 
 const HelpScreen = () => {
     return (
         <>
+            <Meta title='Help | The-Covid-Ease' description='Help Me' keywords='help for Covid' />
             <div className="help-banner"  style={{ 
                     backgroundImage: `url(${process.env.PUBLIC_URL + '/images/health-svg.png'})`,
                     backgroundRepeat: 'no-repeat',

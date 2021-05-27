@@ -1,9 +1,12 @@
 import React from 'react'
+import Meta from '../components/Meta';
 
 
 const RedVolunteersScreen = () => {
     return (
         <div className='red-volunteers'>
+            <Meta title='Red Volunteers WB | The-Covid-Ease' description='Red Volunteers District Wise' keywords='Red Volunteers in WB' />
+
             {/* <div className='welcome-banner red-volunteers-banner'>
                 <img style={{"backgroundPosition": 'center', "backgroundSize": 'cover'}} className='welcome-banner-img'  src='/images/covid-canteen.jpg'></img>
 

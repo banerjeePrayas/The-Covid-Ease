@@ -5,7 +5,7 @@ import generateToken from '../utils/generateToken.js'
 
 
 // @desc      Register a New User
-// @route     POST  /api/adminUser
+// @route     POST  /api/adminUser/register
 // @access    Private/Admin
 const registerAdminUser = asyncHandler(async(req, res) => {
 

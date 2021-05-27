@@ -44,7 +44,7 @@ const DoctorEditID = ({ history, match }) => {
         if(successUpdate) {
             console.log('Updated');
             dispatch({ type:DOCTOR_UPDATE_RESET })
-            history.push('/admin/doctor-consultancyList')
+            history.push('/admin/doctors-consultancyList')
         } else {
             loading = true;
             fetch(`/api/doctors-consultancy/${doctorId}`)   
@@ -69,7 +69,7 @@ const DoctorEditID = ({ history, match }) => {
 
 
         
-    }, [history, userInfo, successUpdate, dispatch])
+    }, [history, userInfo, dispatch, successUpdate])
 
 
     const uploadFileHandler = async (e) => {

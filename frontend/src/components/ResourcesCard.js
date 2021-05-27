@@ -8,7 +8,8 @@ import { LinkContainer } from 'react-router-bootstrap'
 const ResourcesCard = () => {
     return (
         <Container>
-            <h1>Your One Stop Solution for All Verified Covid Resources <i class="fas fa-check-circle" style={{ color: 'green' }}></i></h1>
+            {/* <i class="fas fa-check-circle" style={{ color: 'green' }}></i> */}
+            <h1 className='resources-card-heading'>Your One Stop Solution for All Verified Covid Resources <img style={{ "width": '40px', "height": '40px' }} src='/images/correct.png'></img></h1>
             <div className='container'>
                 <div className='card-resources'>
                     <div className='content'>

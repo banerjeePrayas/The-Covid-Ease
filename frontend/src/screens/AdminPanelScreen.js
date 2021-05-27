@@ -43,11 +43,11 @@ const AdminPanelScreen = ({ history }) => {
             <div class="card-body">
                 <h4 class="card-title">Bed Data</h4>
                 
-                <LinkContainer to='/doctors-consultancy'>
+                {/* <LinkContainer to='/adminPanel/register'>
                         <Button className='btn-sm' variant='success'>
                                 Add Bed    
                         </Button>
-                </LinkContainer>
+                </LinkContainer> */}
                 <LinkContainer to='/admin/bed-availabilityList'>
                         <Button className='btn-sm' variant='success'>
                                     Edit Data
@@ -57,12 +57,12 @@ const AdminPanelScreen = ({ history }) => {
             <div class="card-body">
                 <h4 class="card-title">Doctors</h4>
                 
-                <LinkContainer to='/doctors-consultancy'>
+                {/* <LinkContainer to='/doctors-consultancy'>
                         <Button className='btn-sm' variant='success'>
                                     Add Doctor
                         </Button>
-                </LinkContainer>
-                <LinkContainer to='/admin/doctor-consultancyList'>
+                </LinkContainer> */}
+                <LinkContainer to='/admin/doctors-consultancyList'>
                         <Button className='btn-sm' variant='success'>
                                     Edit Doctors
                         </Button>
@@ -71,7 +71,7 @@ const AdminPanelScreen = ({ history }) => {
             <div class="card-body">
                 <h4 class="card-title">Users</h4>
                 
-                <LinkContainer to='/doctors-consultancy'>
+                <LinkContainer to='/adminPanel/register'>
                         <Button className='btn-sm' variant='success'>
                                     Add User
                         </Button>

@@ -4,6 +4,7 @@ import { Button, Container } from 'react-bootstrap'
 import { adminLogin } from '../actions/userActions.js'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
+import Meta from '../components/Meta';
 
 
 const AdminLoginScreen = ({ location, history }) => {
@@ -33,10 +34,12 @@ const AdminLoginScreen = ({ location, history }) => {
 
 
     return (
-        <>
+        <div className='container-form'>
+            <Meta title='Admin Login | The-Covid-Ease' description='Admin Login Page' />
+
             { error && <Message variant='danger'>Invalid Username or Password</Message> }
             { loading && <Loader /> }
-            <Container>
+            {/* <Container> */}
             <form onSubmit={submitHandler}> 
             <fieldset>
             <div style={{"textAlign": 'center'}}><img className='rotate' src='/images/covid-svg.svg'></img> Covid Ease</div>
@@ -55,8 +58,8 @@ const AdminLoginScreen = ({ location, history }) => {
                                     Login IN
             </Button>
             </form>
-            </Container>
-        </>
+            {/* </Container> */}
+        </div>
     )
 }
 
