@@ -72,7 +72,7 @@ const UserEditID = ({ history, match }) => {
 
     return (
         <>
-            <Container>
+            <div className='container-form'>
             { loadingUpdate && <Loader /> }
 
             { loading ? <Loader />  : (
@@ -99,6 +99,7 @@ const UserEditID = ({ history, match }) => {
                         <input type="radio" label='isAdmin' checked={isAdmin} onChange={(e) => setIsAdmin(e.target.checked)} class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2"></input>
                         Admin?
                         </label>
+                        
                     </div>
                     
                     <Button type="submit" className="btn" variant='success'>Update</Button>
@@ -106,7 +107,7 @@ const UserEditID = ({ history, match }) => {
                 </form>
             ) }
             
-            </Container>
+            </div>
         </>
     )
 }

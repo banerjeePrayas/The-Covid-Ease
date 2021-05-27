@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { HOSPITAL_DELETE_FAIL, HOSPITAL_DELETE_REQUEST, HOSPITAL_DELETE_SUCCESS, HOSPITAL_LIST_FAIL, HOSPITAL_LIST_REQUEST, HOSPITAL_LIST_SUCCESS, HOSPITAL_UPDATE_FAIL, HOSPITAL_UPDATE_REQUEST, HOSPITAL_UPDATE_SUCCESS } from '../constants/bedConstants';
+import { HOSPITAL_CREATE_FAIL, HOSPITAL_CREATE_REQUEST, HOSPITAL_CREATE_SUCCESS, HOSPITAL_DELETE_FAIL, HOSPITAL_DELETE_REQUEST, HOSPITAL_DELETE_SUCCESS, HOSPITAL_LIST_FAIL, HOSPITAL_LIST_REQUEST, HOSPITAL_LIST_SUCCESS, HOSPITAL_UPDATE_FAIL, HOSPITAL_UPDATE_REQUEST, HOSPITAL_UPDATE_SUCCESS } from '../constants/bedConstants';
 
 
 // Action to fetch all Product List
@@ -20,6 +20,40 @@ export const listHospitals = () => async (dispatch) => {
             payload: error.response && error.response.data.message ? error.response.data.message : error.message
         })
     }
+}
+
+
+export const createHospital = () => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: HOSPITAL_CREATE_REQUEST,
+    })
+
+    const { userLogin: { userInfo } } = getState();
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`
+      },
+    }
+
+    const { data } = await axios.post(
+      `/api/WB-beds/`, {}, config
+    )
+
+    dispatch({
+      type: HOSPITAL_CREATE_SUCCESS,
+      payload: data
+    })
+  } catch (error) {
+    dispatch({
+      type: HOSPITAL_CREATE_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    })
+  }
 }
 
 

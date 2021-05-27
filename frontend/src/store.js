@@ -4,18 +4,21 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { doctorListReducer, doctorUpdateReducer, doctorDeleteReducer } from './reducers/doctorReducers.js';
-import { userLoginReducer, userDeleteReducer, userUpdateReducer } from './reducers/userReducers.js';
-import { HospitalListReducer, hospitalDeleteReducer, hospitalUpdateReducer } from './reducers/bedReducers.js';
+import { doctorListReducer, doctorCreateReducer, doctorUpdateReducer, doctorDeleteReducer } from './reducers/doctorReducers.js';
+import { userRegisterReducer, userLoginReducer, userDeleteReducer, userUpdateReducer } from './reducers/userReducers.js';
+import { HospitalListReducer, hospitalCreateReducer, hospitalDeleteReducer, hospitalUpdateReducer } from './reducers/bedReducers.js';
 
 const reducer = combineReducers({
     doctorList: doctorListReducer,
+    doctorCreate: doctorCreateReducer,
     doctorUpdate: doctorUpdateReducer,
     doctorDelete: doctorDeleteReducer,
+    userRegister: userRegisterReducer,
     userLogin: userLoginReducer,
     userDelete: userDeleteReducer,
     userUpdate: userUpdateReducer,
     hospitalList: HospitalListReducer,
+    hospitalCreate: hospitalCreateReducer,
     hospitalDelete: hospitalDeleteReducer,
     hospitalUpdate: hospitalUpdateReducer
 });

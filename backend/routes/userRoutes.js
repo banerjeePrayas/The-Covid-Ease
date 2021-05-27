@@ -4,7 +4,8 @@ import { registerAdminUser, authAdminUser, getUsers, getUserById, updateUser, de
 import { admin, protect } from '../middleware/authMiddleware.js'
 
 
-router.route('/').post(protect, admin, registerAdminUser).get(protect, admin, getUsers);
+router.route('/').get(protect, admin, getUsers);
+router.route('/register').post(protect, admin, registerAdminUser)
 router.route('/login').post(authAdminUser);
 router.route('/:id').get(protect, admin, getUserById).put(protect, admin, updateUser).delete(protect, admin, deletetUser)
 

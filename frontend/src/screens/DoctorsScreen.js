@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 // import { Table, Button, Row, Col } from 'react-bootstrap'
 import HashLoader from 'react-spinners/HashLoader'
 import { css } from "@emotion/react";
+import Meta from '../components/Meta';
 
 const override = css`
   display: block;
@@ -80,17 +81,18 @@ const DoctorsScreen = () => {
 
     return (
         <div className='doctor-layout'>
+          <Meta title='Doctors | The-Covid-Ease' description='Doctors for Online Consultation' keywords='doctors for Covid' />
           { isLoading ? ( <HashLoader color={"#123abc"} loading={isLoading} css={override}  size={150} /> ) : 
 
             (
                doctors.map((doctor) => (
                 <div className="card-doctor" key={doctor._id}>
                     <img src={doctor.image} alt={doctor.name}></img>
-                    <h1 className='doctor-name'>{doctor.name}</h1>
+                    <h1 className='doctor-name'>DR {doctor.name}</h1>
                     <h2 className="doctor-degree">{doctor.degree}</h2>
                     <p className="title-doctor">{doctor.treatmentDomain}</p>
                     <p>Regd No: <span>{doctor.redgNo}</span></p>
-                    <p className="doctor-address">Addrs: {doctor.address}</p>
+                    <p className="doctor-address">Fees: {doctor.onlineConsultancyFees}</p>
                     
                     <p>
                         <button><a href={`tel:${doctor.mobileNo}`}><i class="fas fa-phone-alt"></i> Contact</a></button>

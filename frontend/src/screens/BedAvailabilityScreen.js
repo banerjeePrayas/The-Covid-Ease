@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import HashLoader from 'react-spinners/HashLoader'
 import { css } from "@emotion/react";
+import Meta from '../components/Meta';
 
 const override = css`
   display: block;
@@ -40,6 +41,8 @@ const BedAvailabilityScreen = () => {
 
     return (
         <>
+            <Meta title='Beds | The-Covid-Ease' description='Beds Available' keywords='Bed needed for Covid' />
+            
             { isLoading ? ( <HashLoader color={"#123abc"} loading={isLoading} css={override}  size={150} /> ) : (
 
 

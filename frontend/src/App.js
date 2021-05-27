@@ -13,6 +13,7 @@ import HelpScreen from './screens/HelpScreen.js'
 import GoogleFormScreen from './screens/GoogleFormScreen.js'  
 import AdminLoginScreen from './screens/AdminLoginScreen.js'  
 import AdminPanelScreen from './screens/AdminPanelScreen.js'  
+import RegisterScreen from './screens/AdminScreens/RegisterScreen.js'  
 import RedVolunteersScreen from './screens/RedVolunteersScreen.js'  
 import BedDataEdit from './screens/AdminScreens/BedDataEdit.js'  
 import BedDataEditID from './screens/AdminScreens/BedDataEditID.js'  
@@ -74,13 +75,14 @@ function App() {
           <Route path='/help' component={HelpScreen} exact />
           <Route path='/help/form' component={GoogleFormScreen} exact />
           <Route path='/admin' component={AdminLoginScreen} exact />
-          <Route path='/adminPanel' component={AdminPanelScreen} />
+          <Route path='/adminPanel' component={AdminPanelScreen} exact />
+          <Route path='/adminPanel/register' component={RegisterScreen} exact />
           <Route path='/redVolunteersWB' component={RedVolunteersScreen} />
           <Route path='/admin/bed-availabilityList' component={BedDataEdit} exact />
-          <Route path='/admin/doctor-consultancyList' component={DoctorEdit} exact />
+          <Route path='/admin/doctors-consultancyList' component={DoctorEdit} exact />
           <Route path='/admin/adminUserList' component={UserEdit} exact />
-          <Route path='/admin/bed-availabilityEdit/:id/edit' component={BedDataEditID} exact />
-          <Route path='/admin/doctor-consultancyList/:id/edit' component={DoctorEditID} exact />
+          <Route path='/admin/WB-beds/:id/edit' component={BedDataEditID} exact />
+          <Route path='/admin/doctor-profile/:id/edit' component={DoctorEditID} exact />
           <Route path='/admin/adminUserList/:id/edit' component={UserEditID} exact />
         </main>
 
