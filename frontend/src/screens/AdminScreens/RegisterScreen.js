@@ -16,18 +16,23 @@ const RegisterScreen = ({ location, history }) => {
   const dispatch = useDispatch()
 
   const userRegister = useSelector((state) => state.userRegister)
-  const { loading, error, userInfo, success } = userRegister
+  const { loading, error, success } = userRegister
 
-//   const userLogin = useSelector((state) => state.userLogin)
-//     const { userInfo: user } = userLogin;
+  const userLogin = useSelector((state) => state.userLogin)
+    const { userInfo: user } = userLogin;
 
 const redirect = '/';
 
   useEffect(() => {
+
+    if(!user) {
+      history.push('/adminPanel')
+    }
+
     if (success) {
       history.push('/adminPanel')
     }
-  }, [history, redirect, success])
+  }, [history, redirect, success, user])
 
   const submitHandler = (e) => {
     e.preventDefault()

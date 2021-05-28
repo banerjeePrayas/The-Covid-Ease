@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-undef */
 import React from 'react';
 import { NavDropdown } from 'react-bootstrap';
-// import { Route } from 'react-router-dom'
+import SmallHeader from './SmallHeader'
 import { LinkContainer } from 'react-router-bootstrap';  //Alternative of React-Router for Bootstrap
 import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../actions/userActions';
@@ -84,7 +84,9 @@ const Header = () => {
         //     </nav>
         // </header>
 
-    <nav>
+    <>
+    {/* <SmallHeader /> */}
+        <nav>
         <LinkContainer to='/'>
             <div className="logo"><img className='rotate' src='/images/covid-svg.svg'></img> Covid-Ease</div>
 
@@ -135,6 +137,7 @@ const Header = () => {
         ) : '' }
       </ul>
     </nav>
+    </>
 
     )
 }

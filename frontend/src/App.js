@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // import { Container } from 'react-bootstrap';
 // import ReactGA from 'react-ga'
 import Header from './components/Header.js'
 import Footer from './components/Footer.js'
 import HomeScreen from './screens/HomeScreen.js'
+import NotFound from './screens/NotFound.js'
 import CountryDataScreen from './screens/CountryDataScreen.js'
 import BedAvailabilityScreen from './screens/BedAvailabilityScreen.js'
 import DoctorsScreen from './screens/DoctorsScreen.js'
@@ -53,7 +54,7 @@ function App() {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 3000)
+    }, 2000)
   }, []);
 
   return (
@@ -67,6 +68,7 @@ function App() {
 
       {/* <Container> */}
         <main>
+          <Switch>
           <Route path='/' component={CountryDataScreen} exact />
           <Route path='/country' component={HomeScreen} />
           <Route path='/bed-availability' component={BedAvailabilityScreen} />
@@ -84,6 +86,9 @@ function App() {
           <Route path='/admin/WB-beds/:id/edit' component={BedDataEditID} exact />
           <Route path='/admin/doctor-profile/:id/edit' component={DoctorEditID} exact />
           <Route path='/admin/adminUserList/:id/edit' component={UserEditID} exact />
+          <Route component={NotFound} />
+          </Switch>
+
         </main>
 
       {/* </Container> */}
