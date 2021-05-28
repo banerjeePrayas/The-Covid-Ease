@@ -3,7 +3,7 @@ import { Form, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../../components/Message'
 import Loader from '../../components/Loader'
-// import FormContainer from '../components/FormContainer'
+import Meta from '../../components/Meta';
 import { register } from '../../actions/userActions.js'
 
 const RegisterScreen = ({ location, history }) => {
@@ -16,18 +16,23 @@ const RegisterScreen = ({ location, history }) => {
   const dispatch = useDispatch()
 
   const userRegister = useSelector((state) => state.userRegister)
-  const { loading, error, userInfo, success } = userRegister
+  const { loading, error, success } = userRegister
 
-//   const userLogin = useSelector((state) => state.userLogin)
-//     const { userInfo: user } = userLogin;
+  const userLogin = useSelector((state) => state.userLogin)
+    const { userInfo: user } = userLogin;
 
 const redirect = '/';
 
   useEffect(() => {
+
+    if(!user) {
+      history.push('/adminPanel')
+    }
+
     if (success) {
       history.push('/adminPanel')
     }
-  }, [history, redirect, success])
+  }, [history, redirect, success, user])
 
   const submitHandler = (e) => {
     e.preventDefault()
@@ -41,6 +46,8 @@ const redirect = '/';
   return (
     // <Container className='container'>
     <div className='register-form'>
+      <Meta title='Admin Register | The-Covid-Ease' description='Admin Register Page' />
+
       <h1>Regsiter New Admin</h1>
       {message && <Message variant='danger'>{message}</Message>}
       {error && <Message variant='danger'>{error}</Message>}

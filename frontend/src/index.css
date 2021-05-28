@@ -35,6 +35,17 @@ span  .span-heading {
   color: #FF073A !important;
 }
 
+
+/* SMALL NAVBAR */
+.small-header {
+  height: 2rem;
+  background-color: #FF073A;
+}
+
+.small-header h4 {
+  font-size: 1rem;
+}
+
 .navbar {
   background-color: #f6f6f7 !important;
   color: #6c757d !important;
@@ -373,6 +384,14 @@ svg {
 footer .link a {
   font-weight: 900 !important;
 }
+
+@media screen and (max-width: 900px)  {
+  footer {
+    padding: 1rem;
+  }
+}
+
+
 
 
 
@@ -1006,4 +1025,28 @@ input[type="checkbox"]{
 
 .register-form-grp {
   margin: 1.5rem 0;
+}
+
+
+
+/* NOT FOUND PAGE */
+.back-home {
+  text-align: center;
+  position: relative;
+  top: 60px;
+}
+.not-found {
+  text-align: center;
+}
+.not-found-svg {
+  width: 40rem;
+  height: 40rem;
+}
+
+
+@media (max-width: 900px) {
+  .not-found-svg {
+    width: 20rem;
+    height: 20rem;
+  }
 }

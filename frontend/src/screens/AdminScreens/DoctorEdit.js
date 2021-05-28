@@ -6,6 +6,7 @@ import { LinkContainer } from 'react-router-bootstrap'
 import { Button, Row, Col } from 'react-bootstrap'
 import Message from '../../components/Message';
 import Loader from '../../components/Loader';
+import Meta from '../../components/Meta';
 import { createDoctor, deleteDoctor } from '../../actions/doctorActions'
 
 const override = css`
@@ -85,6 +86,8 @@ const DoctorEdit = ({ history }) => {
 
     return (
         <>
+        <Meta title='Doctors | The-Covid-Ease' description='Admin Doctors Page' />
+
         {/* { loading && <Loader /> }
         { error && <Message variant='Danger'>{error}</Message> } */}
         { loadingDelete && <Loader /> }

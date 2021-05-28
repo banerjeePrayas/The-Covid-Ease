@@ -6,6 +6,7 @@ import { LinkContainer } from 'react-router-bootstrap'
 import { Button, Row, Col, Container } from 'react-bootstrap'
 import Message from '../../components/Message';
 import Loader from '../../components/Loader';
+import Meta from '../../components/Meta';
 import { createHospital, deleteHospital } from '../../actions/bedActions.js'
 import { HOSPITAL_CREATE_RESET } from '../../constants/bedConstants';
 
@@ -87,6 +88,7 @@ const BedDataEdit = ({ history }) => {
 
     return (
         <>
+        <Meta title='Beds | The-Covid-Ease' description='Admin Hospital Beds Page' />
         {/* { loading && <Loader /> }
         { error && <Message variant='Danger'>{error}</Message> } */}
         { loadingDelete && <Loader /> }

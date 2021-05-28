@@ -5,6 +5,7 @@ import { updateUser } from '../../actions/userActions'
 // import { HOSPITAL_UPDATE_RESET } from '../../constants/bedConstants';
 import Loader from '../../components/Loader'
 import Message from '../../components/Message'
+import Meta from '../../components/Meta';
 import { USER_UPDATE_RESET } from '../../constants/userConstants';
 
 const UserEditID = ({ history, match }) => {
@@ -72,6 +73,8 @@ const UserEditID = ({ history, match }) => {
 
     return (
         <>
+        <Meta title={name} description='Admin Doctors Profile' />
+
             <div className='container-form'>
             { loadingUpdate && <Loader /> }
 
