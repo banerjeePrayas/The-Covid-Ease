@@ -2,8 +2,8 @@
 
 > We at The-Covid-Ease try to provide the Most Authentic Resources Available. This is a Web App to make it Easy for Our Country People to just Come Over to the Website and Check all the Current Scenarios & also Most Importantly Can Get to Know About Current Hospital Bed Vacancies in West Bengal, Blood Donors Near you, Oxygen Suppliers Near You, Doctor's for Online Consultation, All Numbers of WB Red Volunteers and also We Provide Help at Your Request. I will also try to include many more Features in the near Future. We are a Non-Profit Organization.
 
-![screenshot](https://github.com/banerjeePrayas/The-Pie-Shop/blob/main/uploads/SC%201.png?raw=true)
-![screenshot](https://github.com/banerjeePrayas/The-Pie-Shop/blob/main/uploads/SC%202.png?raw=true)
+![screenshot](https://github.com/banerjeePrayas/The-Covid-Ease/blob/main/uploads/SC1.png?raw=true)
+![screenshot](https://github.com/banerjeePrayas/The-Covid-Ease/blob/main/uploads/SC2.png?raw=true)
 
 ### ES Modules in Node
 
