@@ -7,6 +7,8 @@ import covidDataRoutes from './routes/covidDataRoutes.js';
 import WBBedRoutes from './routes/wbHospitalRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import doctorRoutes from './routes/doctorRoutes.js';
+import oxygenRoutes from './routes/oxygenRoutes.js';
+import donationRoutes from './routes/donationRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 
 
@@ -36,6 +38,8 @@ app.use('/api/WB-beds', WBBedRoutes);
 app.use('/api/adminUser', userRoutes);
 
 app.use('/api/doctors-consultancy', doctorRoutes);
+app.use('/api/oxygen-cylinder', oxygenRoutes);
+app.use('/api/payment', donationRoutes);
 
 app.use('/api/upload', uploadRoutes);
 
