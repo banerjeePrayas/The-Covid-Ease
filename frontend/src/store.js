@@ -7,6 +7,8 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { doctorListReducer, doctorCreateReducer, doctorUpdateReducer, doctorDeleteReducer } from './reducers/doctorReducers.js';
 import { userRegisterReducer, userLoginReducer, userDeleteReducer, userUpdateReducer } from './reducers/userReducers.js';
 import { HospitalListReducer, hospitalCreateReducer, hospitalDeleteReducer, hospitalUpdateReducer } from './reducers/bedReducers.js';
+import { oxygenListReducer, oxygenCreateReducer, oxygenDeleteReducer, oxygenUpdateReducer } from './reducers/oxygenReducers'
+
 
 const reducer = combineReducers({
     doctorList: doctorListReducer,
@@ -20,7 +22,11 @@ const reducer = combineReducers({
     hospitalList: HospitalListReducer,
     hospitalCreate: hospitalCreateReducer,
     hospitalDelete: hospitalDeleteReducer,
-    hospitalUpdate: hospitalUpdateReducer
+    hospitalUpdate: hospitalUpdateReducer,
+    oxygenList: oxygenListReducer,
+    oxygenCreate: oxygenCreateReducer,
+    oxygenDelete: oxygenDeleteReducer,
+    oxygenUpdate: oxygenUpdateReducer
 });
 
 

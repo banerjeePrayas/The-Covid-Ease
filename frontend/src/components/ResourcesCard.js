@@ -46,7 +46,7 @@ const ResourcesCard = () => {
                     <img src='/images/oxygen-mask.png'></img>
                         <h2>Oxygen</h2>
                         <p>Check Availability of Oxygen Cylinders Nearby.</p>
-                        <LinkContainer to='/oxygen-stock'><a className='btn' href='#'>Read More</a></LinkContainer>
+                        <LinkContainer to='/oxygen-cylinder'><a className='btn' href='#'>Read More</a></LinkContainer>
                     </div>
                 </div>
 
