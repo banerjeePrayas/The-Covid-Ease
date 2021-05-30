@@ -4,9 +4,11 @@ import dotenv from 'dotenv';
 import stateCovidData from './data/stateCovidData.js';
 import wbBed from './data/wbHospitalBedData.js';
 import doctors from './data/doctorName.js';
+import oxygen from './data/oxygenData.js';
 import stateData from './models/stateCovidData.js';
 import WbBedData from './models/wbHospitalBedData.js';
 import Doctor from './models/Doctor.js';
+import Oxygen from './models/Oxygen.js';
 import connectDB from './config/db.js';
 
 
@@ -21,6 +23,7 @@ const importData = async () => {
         await stateData.deleteMany();
         await WbBedData.deleteMany();
         await Doctor.deleteMany();
+        await Oxygen.deleteMany();
 
 
         const createdStateData = await stateData.insertMany(stateCovidData);
@@ -28,6 +31,8 @@ const importData = async () => {
         const WBBedData = await WbBedData.insertMany(wbBed);
 
         const doctorData = await Doctor.insertMany(doctors);
+
+        const oxygenData = await Oxygen.insertMany(oxygen);
 
         // const adminUser = createdUsers[0]._id;
 
@@ -53,6 +58,7 @@ const destroyData = async () => {
         await stateData.deleteMany();
         await WbBedData.deleteMany();
         await Doctor.deleteMany();
+        await Oxygen.deleteMany();
         // await User.deleteMany();
 
         console.log('Data Destroyed');

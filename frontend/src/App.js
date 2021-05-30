@@ -11,6 +11,7 @@ import BedAvailabilityScreen from './screens/BedAvailabilityScreen.js'
 import DoctorsScreen from './screens/DoctorsScreen.js'
 import AboutusScreen from './screens/AboutusScreen.js'
 import HelpScreen from './screens/HelpScreen.js'  
+import DonateScreen from './screens/DonateScreen.js'  
 import GoogleFormScreen from './screens/GoogleFormScreen.js'  
 import AdminLoginScreen from './screens/AdminLoginScreen.js'  
 import AdminPanelScreen from './screens/AdminPanelScreen.js'  
@@ -76,6 +77,7 @@ function App() {
           <Route path='/about-us' component={AboutusScreen} />
           <Route path='/help' component={HelpScreen} exact />
           <Route path='/help/form' component={GoogleFormScreen} exact />
+          <Route path='/donate' component={DonateScreen} exact />
           <Route path='/admin' component={AdminLoginScreen} exact />
           <Route path='/adminPanel' component={AdminPanelScreen} exact />
           <Route path='/adminPanel/register' component={RegisterScreen} exact />
