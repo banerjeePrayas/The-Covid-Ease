@@ -41,7 +41,7 @@ const AdminPanelScreen = ({ history }) => {
         <div>
         <div class="card-adminPanel">
             <div class="card-body">
-                <h4 class="card-title">Bed Data</h4>
+                <h4 class="card-title">Bed Data <img src='/images/hospital-bed.png'></img></h4>
                 
                 {/* <LinkContainer to='/adminPanel/register'>
                         <Button className='btn-sm' variant='success'>
@@ -55,7 +55,21 @@ const AdminPanelScreen = ({ history }) => {
                 </LinkContainer>
             </div>
             <div class="card-body">
-                <h4 class="card-title">Doctors</h4>
+                <h4 class="card-title">Oxygen <img src='/images/oxygen-mask.png'></img></h4>
+                
+                {/* <LinkContainer to='/adminPanel/register'>
+                        <Button className='btn-sm' variant='success'>
+                                Add Bed    
+                        </Button>
+                </LinkContainer> */}
+                <LinkContainer to='/admin/oxygen-cylinder'>
+                        <Button className='btn-sm' variant='success'>
+                                    Edit Oxygen
+                        </Button>
+                </LinkContainer>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">Doctors <img src='/images/doctor.png'></img></h4>
                 
                 {/* <LinkContainer to='/doctors-consultancy'>
                         <Button className='btn-sm' variant='success'>
@@ -69,7 +83,7 @@ const AdminPanelScreen = ({ history }) => {
                 </LinkContainer>
             </div>
             <div class="card-body">
-                <h4 class="card-title">Users</h4>
+                <h4 class="card-title">Users <img src='/images/profile.png'></img></h4>
                 
                 <LinkContainer to='/adminPanel/register'>
                         <Button className='btn-sm' variant='success'>

@@ -728,13 +728,18 @@ footer .link a {
 .card-adminPanel {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  
+  text-align: center;
 }
 
 .card-adminPanel .card-body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 1rem 5rem !important;
   max-width: 20rem;
+}
+
+.card-adminPanel .card-body .card-title img {
+  width: 25px;
+  height: 25px;
 }
 
 .card-adminPanel .card-body .btn-sm {
