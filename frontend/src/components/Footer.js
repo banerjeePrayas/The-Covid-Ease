@@ -29,23 +29,23 @@ function Footer() {
           <GitHub size={48} />
         </a>
 
-        <a
+        {/* <a
           className="api"
           href="https://api.covid19india.org"
           target="_blank"
           rel="noopener noreferrer"
         >
           <Database size={48} />
-        </a>
+        </a> */}
 
-        <a
+        {/* <a
           href="https://t.me/covid19indiaorg"
           className="telegram"
           target="_blank"
           rel="noopener noreferrer"
         >
           <Send size={48} />
-        </a>
+        </a> */}
 
         <a
           href="https://twitter.com/covid19indiaorg"
@@ -66,7 +66,7 @@ function Footer() {
         </a>
 
         <a
-          href="mailto:hello@covid19india.org"
+          href="mailto:admin@thecovidease.com"
           className="mail"
           target="_blank"
           rel="noopener noreferrer"

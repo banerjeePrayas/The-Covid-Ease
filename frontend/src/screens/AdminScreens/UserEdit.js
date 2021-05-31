@@ -44,27 +44,26 @@ const UserEdit = ({ history }) => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        if(!userInfo || !userInfo.isAdmin) {
+
+        if(userInfo && userInfo.isAdmin) {
+            fetch('/api/adminUser', {
+                method: 'get', 
+                headers: new Headers({
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${userInfo.token}`
+                }), 
+            })   
+            .then((res) => res.json())  
+            .then((users) => {
+                setUsers(users);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+        } else {
             history.push('/admin')
-        } 
-
+        }
         
-
-        // dispatch(listHospitals());
-        fetch('/api/adminUser', {
-            method: 'get', 
-            headers: new Headers({
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${userInfo.token}`
-            }), 
-        })   
-        .then((res) => res.json())
-        .then((users) => {
-            setUsers(users);
-        })
-        .catch((err) => {
-            console.log(err);
-        });
 
         
     }, [history, userInfo, successDelete])

@@ -25,7 +25,7 @@ const OxygenScreen = () => {
 
     return (
         <>
-            <Meta title='Beds | The-Covid-Ease' description='Beds Available' keywords='Bed needed for Covid' />
+            <Meta title='Oxygen | The-Covid-Ease' description='Oxygen Available' keywords='Oxygen Supplier needed for Covid' />
             
             { isLoading ? ( <Loader /> ) : (
                 
@@ -36,7 +36,7 @@ const OxygenScreen = () => {
                     <div className='card-resources'>
                         <div className='content'>
                         {/* <img src='/images/covid-svg.svg'></img> */}
-                            <img src='/images/hospital-bed.png'></img>
+                            <img src='/images/oxygen-mask.png'></img>
                             <h2>{oxygen.dealerName}</h2>
                             <p><i style={{"color": 'red'}} class="fas fa-map-marker-alt"></i>: {oxygen.location}</p>
                             {/* <LinkContainer to='/bed-availability'><a href='#'>Read More</a></LinkContainer> */}
