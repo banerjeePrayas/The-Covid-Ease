@@ -725,6 +725,16 @@ footer .link a {
 
 
 /* ADMIN PANEL */
+.adminPanel-heading {
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem;
+}
+.adminPanel-heading-span {
+  color: #FF073A;
+  font-weight: 900;
+  font-style: italic;
+}
 .card-adminPanel {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -1100,7 +1110,7 @@ input[type="checkbox"]{
 }   
 
 .container-oxygen .card-resources:hover {
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
 }
 
 .container-oxygen .card-resources .content {
