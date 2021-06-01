@@ -39,6 +39,7 @@ const AdminPanelScreen = ({ history }) => {
         </ul> */}
         
         <div>
+        <h1 className='adminPanel-heading'>Welcome, <span className='adminPanel-heading-span'>{userInfo.name}</span></h1>
         <div class="card-adminPanel">
             <div class="card-body">
                 <h4 class="card-title">Bed Data <img src='/images/hospital-bed.png'></img></h4>
