@@ -16,19 +16,18 @@ const ResourcesCard = () => {
                     {/* <img src='/images/covid-svg.svg'></img> */}
                         <img src='/images/hospital-bed.png'></img>
                         <h2>Beds</h2>
-                        <p>Find Out the Bed's Available in WB</p>
+                        <p>Find Out the Beds Available in WB</p>
                         <LinkContainer to='/bed-availability'><a href='#'>Read More</a></LinkContainer>
                     </div>
                 </div>
-                <div className='card-resources'>
+                {/* <div className='card-resources'>
                     <div className='content'>
-                    {/* <img src='/images/covid-svg.svg'></img> */}
                         <img src='/images/blood.png'></img>
                         <h2>Blood</h2>
                         <p>Find Out Blood Donors in WB</p>
-                        <LinkContainer to='/bed-availability'><a href='#'>Read More</a></LinkContainer>
+                        <LinkContainer to='/blood-donor'><a href='#'>Read More</a></LinkContainer>
                     </div>
-                </div>
+                </div> */}
 
                 <div className='card-resources'>
                     <div className='content'>
