@@ -675,16 +675,20 @@ footer .link a {
 .card-red {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 0rem 3rem;
+
 }
 
 .card-red .card-red-details {
   max-width: 20rem;
-  margin: 0.8rem 1.5rem;
-  padding: 1rem 0rem;
+  max-height: 10rem;
+  margin: 0.8rem 0.8rem;
+  /* padding: 1rem 0rem; */
   background-image: linear-gradient(to bottom right, red, black);
   color: #f1f1f1;
   cursor: pointer;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 
 .card-red .card-red-details h1 {
@@ -719,9 +723,15 @@ footer .link a {
     grid-gap: 0.2rem;
     grid-row-gap: 0.2rem;
     text-align: center;
+    padding: 0rem 1rem !important
+
   }
   .card-red h1 {
-    font-size: 1rem !important;
+    font-size: 0.8rem !important;
+
+  }
+  .red-volunteers-heading {
+    padding: 0rem 1rem !important;
 
   }
 }
