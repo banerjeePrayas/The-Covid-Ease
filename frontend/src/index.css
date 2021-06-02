@@ -712,13 +712,17 @@ footer .link a {
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
   .card-red {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 0.5rem;
-    grid-row-gap: 0.5rem;
-  
+    grid-gap: 0.2rem;
+    grid-row-gap: 0.2rem;
+    text-align: center;
+  }
+  .card-red h1 {
+    font-size: 1rem !important;
+
   }
 }
 
@@ -983,7 +987,7 @@ input[type="checkbox"]{
 @media (max-width: 1000px){
   
   nav{
-    padding: 0 40px 0 50px;
+    padding: 0 40px 0 30px;
   }
   .nav .logo {
     width: 50px 50px !important;

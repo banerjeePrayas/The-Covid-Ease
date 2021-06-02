@@ -25,9 +25,9 @@ if(process.env.NODE_ENV === 'development') {
 // To be able to achieve JSON data from body
 app.use(express.json())
 
-app.get('/', (req, res) => {
-    res.send('API is Running.....');
-});
+// app.get('/', (req, res) => {
+//     res.send('API is Running.....');
+// });
 
 
 app.use('/api/covidData', covidDataRoutes);
