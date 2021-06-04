@@ -9,6 +9,7 @@ import NotFound from './screens/NotFound.js'
 import CountryDataScreen from './screens/CountryDataScreen.js'
 import BedAvailabilityScreen from './screens/BedAvailabilityScreen.js'
 import DoctorsScreen from './screens/DoctorsScreen.js'
+import OxygenByCityScreen from './screens/OxygenByCityScreen.js'
 import OxygenScreen from './screens/OxygenScreen.js'
 import AboutusScreen from './screens/AboutusScreen.js'
 import HelpScreen from './screens/HelpScreen.js'  
@@ -75,6 +76,7 @@ function App() {
           <Route path='/country' component={HomeScreen} />
           <Route path='/bed-availability' component={BedAvailabilityScreen} />
           <Route path='/doctors-consultancy' component={DoctorsScreen} />
+          <Route path='/oxygen-search' component={OxygenByCityScreen} />
           <Route path='/oxygen-cylinder' component={OxygenScreen} />
           <Route path='/about-us' component={AboutusScreen} />
           <Route path='/help' component={HelpScreen} exact />
