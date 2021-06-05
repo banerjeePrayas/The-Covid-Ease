@@ -70,13 +70,12 @@ const BedDataEditID = ({ history, match }) => {
         <>
         <Meta title={name} description='Admin Hospital Beds Page' />
 
-            <Container>
+            {/* <Container> */}
             { loadingUpdate && <Loader /> }
 
             { loading ? <Loader />  : (
-                <form  onSubmit={submitHandler}>
+                <form className='bedEditId' onSubmit={submitHandler}>
                 <fieldset>
-                    <legend>Legend</legend>
                     <div class="form-group row">
                     <label for="staticEmail" class="col-sm-2 col-form-label">User</label>
                     <div class="col-sm-10">
@@ -107,7 +106,7 @@ const BedDataEditID = ({ history, match }) => {
                 </form>
             ) }
             
-            </Container>
+            {/* </Container> */}
         </>
     )
 }

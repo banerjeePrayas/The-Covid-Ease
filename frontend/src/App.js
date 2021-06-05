@@ -89,7 +89,7 @@ function App() {
           <Route path='/admin/bed-availabilityList' component={BedDataEdit} exact />
           <Route path='/admin/doctors-consultancyList' component={DoctorEdit} exact />
           <Route path='/admin/adminUserList' component={UserEdit} exact />
-          <Route path='/admin/WB-beds/:id/edit' component={BedDataEditID} exact />
+          <Route path='/admin/bed-availabilityEdit/:id/edit' component={BedDataEditID} exact />
           <Route path='/admin/doctor-profile/:id/edit' component={DoctorEditID} exact />
           <Route path='/admin/adminUserList/:id/edit' component={UserEditID} exact />
           <Route component={NotFound} />
