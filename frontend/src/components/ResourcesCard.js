@@ -10,6 +10,7 @@ const ResourcesCard = () => {
         <Container>
             {/* <i class="fas fa-check-circle" style={{ color: 'green' }}></i> */}
             <h1 className='resources-card-heading'>Your One Stop Solution for All Verified Covid Resources <img style={{ "width": '40px', "height": '40px' }} src='/images/correct.png'></img></h1>
+            <p className='resources-card-paragraph'>This Website is to bring all the Covid related information in one place. Please help others by adding verified Oxygen or Ambulance or Volunteers leads in respective pages. We shall win this fight together. (এই Website টি Covid সম্পর্কিত সমস্ত তথ্য এক জায়গায় আনার চেষ্টা। আপনার কাছে অক্সিজেন / অ্যাম্বুলেন্স / ভলান্টিয়ার দের তথ্য থাকলে অনুগ্রহ করে Website এ দেওয়া ফর্ম এ জমা দিন এবং অপরকে সাহায্য করুন। এই লড়াই আমরা একসাথেই জিতব।)</p>
             <div className='container'>
                 <div className='card-resources'>
                     <div className='content'>
