@@ -820,6 +820,17 @@ footer .link a {
 .container .resources-card-heading {
   font-size: 3rem;
   text-align: center;
+  line-height: 1.5;
+}
+
+.container .resources-card-paragraph {
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 1rem;
+  line-height: 1.5;
+  background-color: #E5FAF0;
+  color: #66C497;
+  border-radius: 10px;
 }
 
 .container .card-resources {
@@ -895,6 +906,14 @@ footer .link a {
   .container .resources-card-heading {
     font-size: 1.8rem !important;
     text-align: center;
+  }
+  .resources-card-paragraph {
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 1rem;
+    line-height: 1.8;
+    background-color: greenyellow;
+    border-radius: 10px;
   }
 
   .container .resources-card-heading img {

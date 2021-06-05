@@ -1,7 +1,7 @@
 import React from 'react'
 import JSONDATA from '../SearchList.json'
 import { useState } from 'react'
-import { Card } from 'react-bootstrap';
+import { Card, Dropdown, DropdownButton, Form } from 'react-bootstrap';
 
 const OxygenByCityScreen = () => {
 
@@ -9,6 +9,27 @@ const OxygenByCityScreen = () => {
 
     return (
         <div style={{"textAlign": 'center'}}>
+            <DropdownButton style={{"display": 'inline-block'}} id="dropdown-item-button" title="Dropdown button">
+                <Dropdown.Item as="button">Action</Dropdown.Item>
+                <Dropdown.Item as="button">Another action</Dropdown.Item>
+                <Dropdown.Item as="button">Something else</Dropdown.Item>
+            </DropdownButton>
+            <DropdownButton style={{"display": 'inline-block'}} id="dropdown-item-button" title="Dropdown button">
+                <Dropdown.Item as="button">Action</Dropdown.Item>
+                <Dropdown.Item as="button">Another action</Dropdown.Item>
+                <Dropdown.Item as="button">Something else</Dropdown.Item>
+            </DropdownButton>
+            <DropdownButton style={{"display": 'inline-block'}} id="dropdown-item-button" title="Dropdown button">
+                <Dropdown.Item as="button">Action</Dropdown.Item>
+                <Dropdown.Item as="button">Another action</Dropdown.Item>
+                <Dropdown.Item as="button">Something else</Dropdown.Item>
+            </DropdownButton>
+            { JSONDATA.map((val) => {
+                return <Form.Group style={{"color": 'black'}} className="mb-3" controlId="formBasicCheckbox">
+                <Form.Check type="checkbox" label="Check me out" />
+              </Form.Group>
+            }) }
+            Search By Districtwise
             <form action="" class="search-bar">
                 {/* Search Here <i class="far fa-hand-point-right"></i> */}
                 <input type="search" onChange={event => {setSearchTerm(event.target.value)}} name="search" pattern=".*\S.*" required></input>
