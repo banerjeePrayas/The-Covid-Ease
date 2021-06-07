@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import HashLoader from 'react-spinners/HashLoader'
 import { css } from "@emotion/react";
 import Meta from '../components/Meta';
+import PageHeaders from '../components/PageHeaders';
 
 const override = css`
   display: block;
@@ -45,27 +46,30 @@ const BedAvailabilityScreen = () => {
             
             { isLoading ? ( <HashLoader color={"#123abc"} loading={isLoading} css={override}  size={150} /> ) : (
 
-
-            <table class="table table-hover table-bed">
-            <thead>
-                <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Address</th>
-                <th scope="col">Beds Available</th>
-                <th scope="col">Contact No</th>
-                </tr>
-            </thead>
-            <tbody className='table-bed-body'>
-                { beds.map((bed) => (
-                    <tr key={bed._id} class="info">
-                    <th scope="row">{bed.name}</th>
-                    <th scope="row">{bed.address}</th>
-                    <td>{bed.bedAvailable}</td>
-                    <td><a href={`tel:${bed.contactNo}`}><i class="fas fa-phone-alt"></i> Contact</a></td>
-                    </tr>
-                )) }
-            </tbody>
-            </table> 
+                <>
+                    <PageHeaders message='HOSPITAL BEDS - হাসপাতালে বিছানা' />
+                    <table class="table table-hover table-bed">
+                    <thead>
+                        <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Beds Available</th>
+                        <th scope="col">Contact No</th>
+                        </tr>
+                    </thead>
+                    <tbody className='table-bed-body'>
+                        { beds.map((bed) => (
+                            <tr key={bed._id} class="info">
+                            <th scope="row">{bed.name}</th>
+                            <th scope="row">{bed.address}</th>
+                            <td>{bed.bedAvailable}</td>
+                            <td><a href={`tel:${bed.contactNo}`}><i class="fas fa-phone-alt"></i> Contact</a></td>
+                            </tr>
+                        )) }
+                    </tbody>
+                    </table> 
+                </>
+            
             )}
            
         </>

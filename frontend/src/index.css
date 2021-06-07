@@ -36,6 +36,18 @@ span  .span-heading {
 }
 
 
+/* PAGE HEADINGS */
+.page-headers-div {
+  text-align: center;
+  padding: 2rem;
+}
+
+.page-headers-div h1 {
+  font-weight: bolder;
+
+}
+
+
 /* SMALL NAVBAR */
 .small-header {
   height: 2rem;
