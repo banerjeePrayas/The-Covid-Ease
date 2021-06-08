@@ -3,6 +3,7 @@ import HashLoader from 'react-spinners/HashLoader'
 import { css } from "@emotion/react";
 import Meta from '../components/Meta';
 import PageHeaders from '../components/PageHeaders';
+import { Button } from 'react-bootstrap';
 
 const override = css`
   display: block;
@@ -48,6 +49,14 @@ const BedAvailabilityScreen = () => {
 
                 <>
                     <PageHeaders message='HOSPITAL BEDS - হাসপাতালে বিছানা' />
+                    <p className='resources-card-paragraph'>Live Bed Status Update from Integrated Covid Management System(Govt of West Bengal )👇</p>
+                    <div className='real-time-bed-btn'>
+                        <Button className='btn'>
+                        <a href='https://excise.wb.gov.in/CHMS/Public/Page/CHMS_Public_Hospital_Bed_Availability.aspx' target='_'>
+                            Real Time Bed Availability Checking  /  হাসপাতালে বিছানা অনুসন্ধান
+                        </a>
+                        </Button>
+                    </div>
                     <table class="table table-hover table-bed">
                     <thead>
                         <tr>

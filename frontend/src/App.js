@@ -13,6 +13,9 @@ import OxygenByCityScreen from './screens/OxygenByCityScreen.js'
 import OxygenScreen from './screens/OxygenScreen.js'
 import AboutusScreen from './screens/AboutusScreen.js'
 import HelpScreen from './screens/HelpScreen.js'  
+import BloodBankScreen from './screens/BloodBankScreen.js'  
+import CarScreen from './screens/CarScreen.js'  
+import SafeHomeScreen from './screens/SafeHomeScreen.js'  
 import DonateScreen from './screens/DonateScreen.js'  
 import GoogleFormScreen from './screens/GoogleFormScreen.js'  
 import AdminLoginScreen from './screens/AdminLoginScreen.js'  
@@ -81,6 +84,9 @@ function App() {
           <Route path='/about-us' component={AboutusScreen} />
           <Route path='/help' component={HelpScreen} exact />
           <Route path='/help/form' component={GoogleFormScreen} exact />
+          <Route path='/blood-bank' component={BloodBankScreen} exact />
+          <Route path='/emergency-car-service' component={CarScreen} exact />
+          <Route path='/safe-home' component={SafeHomeScreen} exact />
           <Route path='/donate' component={DonateScreen} exact />
           <Route path='/admin' component={AdminLoginScreen} exact />
           <Route path='/adminPanel' component={AdminPanelScreen} exact />
