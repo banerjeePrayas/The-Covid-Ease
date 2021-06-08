@@ -50,6 +50,35 @@ const ResourcesCard = () => {
                     </div>
                 </div>
 
+                <div className='card-resources'>
+                    <div className='content'>
+                    {/* <img src='/images/covid-svg.svg'></img> */}
+                    <img src='/images/house.png'></img>
+                        <h2>SAFE HOME-সেফ হোম</h2>
+                        <p>Find the information about all safe home beds available near you.</p>
+                        <LinkContainer to='/safe-home'><a className='btn' href='#'>Read More</a></LinkContainer>
+                    </div>
+                </div>
+
+                <div className='card-resources'>
+                    <div className='content'>
+                    {/* <img src='/images/covid-svg.svg'></img> */}
+                    <img src='/images/blood.png'></img>
+                        <h2>BLOOD BANK-ব্লাড ব্যাংক</h2>
+                        <p>Get all information about the Blood Bank near you.</p>
+                        <LinkContainer to='/blood-bank'><a className='btn' href='#'>Read More</a></LinkContainer>
+                    </div>
+                </div>
+
+                <div className='card-resources'>
+                    <div className='content'>
+                    {/* <img src='/images/covid-svg.svg'></img> */}
+                    <img src='/images/car.png'></img>
+                        <h2>EMERGENCY CAR SERVICES FOR COVID NEED</h2>
+                        <p>আপৎকালীন Car পরিষেবা </p>
+                        <LinkContainer to='/emergency-car-service'><a className='btn' href='#'>Read More</a></LinkContainer>
+                    </div>
+                </div>
 
                 <div className='card-resources'>
                     <div className='content'>
