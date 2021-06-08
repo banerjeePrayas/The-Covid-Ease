@@ -122,7 +122,7 @@ code {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) no-repeat center center fixed;
+  /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) no-repeat center center fixed; */
 }
 
 @media screen and (max-width: 600px) {
@@ -977,7 +977,7 @@ footer .link a {
 
   .container .card-resources {
     margin: 20px;
-    width: 300px;
+    width: 420px;
     height: 200px;
 
   }

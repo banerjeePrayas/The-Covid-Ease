@@ -52,6 +52,16 @@ const ResourcesCard = () => {
 
                 <div className='card-resources'>
                     <div className='content'>
+                        {/* <img src='/images/covid-svg.svg'></img> */}
+                        <img src='/images/ambulance.png'></img>
+                        <h2>AMBULANCE - অ্যাম্বুলেন্স</h2>
+                        <p>Call for help in your local areas.</p>
+                        <LinkContainer to='/ambulance-service'><a href='#'>Read More</a></LinkContainer>
+                    </div>
+                </div>
+
+                <div className='card-resources'>
+                    <div className='content'>
                     {/* <img src='/images/covid-svg.svg'></img> */}
                     <img src='/images/house.png'></img>
                         <h2>SAFE HOME-সেফ হোম</h2>
