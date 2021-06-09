@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-undef */
 import React from 'react';
-import { NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import SmallHeader from './SmallHeader'
 import { LinkContainer } from 'react-router-bootstrap';  //Alternative of React-Router for Bootstrap
 import { useDispatch, useSelector } from 'react-redux'
@@ -86,7 +86,7 @@ const Header = () => {
 
     <>
     {/* <SmallHeader /> */}
-        <nav>
+        {/* <nav>
         <LinkContainer to='/'>
             <div className="logo"><img className='rotate' src='/images/covid-svg.svg'></img> Covid-Ease</div>
 
@@ -136,7 +136,92 @@ const Header = () => {
             </NavDropdown>
         ) : '' }
       </ul>
-    </nav>
+    </nav> */}
+
+<Navbar collapseOnSelect expand="lg" bg="light" variant="light" className='nav'>
+    <LinkContainer to='/'>
+            <div className="logo"><img className='rotate' src='/images/covid-svg.svg' alt='Symbol of Covid-Ease'></img> Covid-Ease</div>
+
+    </LinkContainer>
+  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+  <Navbar.Collapse id="responsive-navbar-nav" className='justify-content-end'>
+    <Nav className="mr-auto">
+    <Nav.Link><LinkContainer to='/'>
+                <a href="#">Home</a>
+            </LinkContainer></Nav.Link>
+      <Nav.Link><LinkContainer to='/country'>
+                <a href="#">State Data</a>
+            </LinkContainer></Nav.Link>
+        <Nav.Link><LinkContainer to='/about-us'>
+                <a href="#">About Us</a>
+            </LinkContainer></Nav.Link>
+      <NavDropdown title="Resources" id="collasible-nav-dropdown">
+        <NavDropdown.Item href="">
+        <Nav.Link><LinkContainer to='/bed-availability'>
+                <a href="#">Beds</a>
+            </LinkContainer>
+        </Nav.Link>
+        </NavDropdown.Item>
+        <NavDropdown.Item href="">
+        <Nav.Link><LinkContainer to='/doctors-consultancy'>
+                <a href="#">Doctors</a>
+            </LinkContainer>
+        </Nav.Link>
+        </NavDropdown.Item>
+        <NavDropdown.Item href="">
+        <Nav.Link><LinkContainer to='/oxygen-cylinder'>
+                <a href="#">Oxygen</a>
+            </LinkContainer>
+        </Nav.Link>
+        </NavDropdown.Item>
+        <NavDropdown.Item href="">
+        <Nav.Link><LinkContainer to='/ambulance-service'>
+                <a  href="#">Ambulance</a>
+            </LinkContainer>
+        </Nav.Link>
+        </NavDropdown.Item>
+        <NavDropdown.Item href="">
+        <Nav.Link><LinkContainer to='/safe-home'>
+                <a  href="#">Safe Home</a>
+            </LinkContainer>
+        </Nav.Link>
+        </NavDropdown.Item>
+        <NavDropdown.Item href="">
+        <Nav.Link><LinkContainer to='/blood-bank'>
+                <a  href="#">Blood Bank</a>
+            </LinkContainer>
+        </Nav.Link>
+        </NavDropdown.Item>
+        <NavDropdown.Item href="">
+        <Nav.Link><LinkContainer to='/redVolunteersWB'>
+                <a href="#">Volunteers</a>
+            </LinkContainer>
+        </Nav.Link>
+        </NavDropdown.Item>
+        <NavDropdown.Item href="">
+        <Nav.Link><LinkContainer to='/blood-bank'>
+                <a class="active" href="#">Blood Bank</a>
+            </LinkContainer>
+        </Nav.Link>
+        </NavDropdown.Item>
+        <NavDropdown.Item href="">
+        <Nav.Link><LinkContainer to='/emergency-car-service'>
+                <a class="active" href="#">Car</a>
+            </LinkContainer>
+        </Nav.Link>
+        </NavDropdown.Item>
+      </NavDropdown>
+      <Nav.Link><LinkContainer to='/help'>
+                <a class="active" href="#">Help Me</a>
+            </LinkContainer>
+        </Nav.Link>
+      <Nav.Link><LinkContainer to='/addLead'>
+                <a class="active" href="#">Add Lead</a>
+            </LinkContainer>
+        </Nav.Link>
+    </Nav>
+  </Navbar.Collapse>
+</Navbar>
     </>
 
     )
