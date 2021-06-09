@@ -21,7 +21,7 @@ body {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .container-form {
@@ -332,6 +332,7 @@ footer {
     align-self: center;
   text-align: center;
   justify-content: center;
+  padding: 2rem;
 }
 
 footer > * {
@@ -404,6 +405,12 @@ svg {
 
 footer .link a {
   font-weight: 900 !important;
+  font-size: 1.5rem;
+  color: #6c757d;
+}
+
+footer .link a:hover {
+  color: #7695F3;
 }
 
 @media screen and (max-width: 900px)  {
@@ -1012,15 +1019,52 @@ footer .link a {
 
 
 /* HEADER */
-nav{
-  display: flex;
+.navbar {
+  padding: 1.2rem !important;
+  background-color: #f6f6f7 !important;
+  color: #6c757d !important;
+}
+
+.navbar .logo {
+  padding-left: 4rem !important;
+}
+
+#responsive-navbar-nav {
+  padding-left: 4rem;
+}
+
+.navbar-nav .nav-link {
+  padding: 0.5rem 1rem !important;
+  color: #6c757d !important;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #7695F3 !important;
+  background: #fff;
+}
+
+#responsive-navbar-nav .nav-link a {
+  color: #6c757d !important;
+}
+
+#responsive-navbar-nav .nav-link a:hover {
+  color: #7695F3 !important;
+  background: #fff;
+}
+
+#responsive-navbar-nav .dropdown-item .nav-link {
+  font-weight: bolder;
+}
+
+.nav .navbar .bg-light{
+  /* display: flex;
   height: 80px;
-  width: 100%;
-  background: #f6f6f7;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 50px 0 100px;
-  flex-wrap: wrap;
+  width: 100%; */
+  background-color: #f6f6f7 !important;
+  /* align-items: center;
+  justify-content: space-between; */
+  padding: 10rem !important;
+  /* flex-wrap: wrap; */
   color: #6c757d !important;
 }
 nav .logo {
@@ -1030,6 +1074,7 @@ nav .logo {
   cursor: pointer;
   width: 70px 70px !important;
     font-size: 1rem !important;
+    padding: 0 0 0 20px;
 }
 nav .logo .img {
   width: 30px 30px;
@@ -1078,6 +1123,21 @@ input[type="checkbox"]{
   }
 }
 @media (max-width: 1200px) {
+  .navbar .logo {
+    padding-left: 1.2rem !important;
+  }
+
+  #responsive-navbar-nav {
+    padding-left: 1rem;
+  }
+  
+  #responsive-navbar-nav .nav-link {
+    padding: 1rem 1rem !important;
+  }
+
+  #responsive-navbar-nav .dropdown-item .nav-link {
+    padding: 0.5rem 0.5rem !important;
+  }
   nav .menu-btn i{
     display: block;
   }
