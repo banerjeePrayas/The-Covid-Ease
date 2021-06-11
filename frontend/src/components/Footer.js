@@ -74,6 +74,32 @@ function Footer() {
           <Mail size={48} />
         </a>
       </div>
+      <div className="links-policies">
+      <a
+          href="https://docs.google.com/document/d/1yqqWTE_jfC8F_u9UV9nLq3AUZR2wwpQGJigRJV3YQvg/pub"
+          className="privacy-policy"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Privacy Policy
+        </a>
+      <a
+          href="https://docs.google.com/document/d/1bCwt0WccF7oDMBGAGRxtPgUfzqGzkUjtLnnE1JlL2dg/pub"
+          className="terms-condition"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Terms & Conditions
+        </a>
+      <a
+          href="https://docs.google.com/document/d/1xYM1QHm9S5phnkzyENqJ3KXv37schlsiTp0Id_4IMwE/pub"
+          className="privacy-policy"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Refund Policy
+        </a>
+      </div>
     </footer>
   );
 }

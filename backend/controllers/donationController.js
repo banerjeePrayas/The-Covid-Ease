@@ -1,65 +1,63 @@
 import asyncHandler from 'express-async-handler';  
+import Razorpay  from 'razorpay';
+import shortId  from 'shortid';
 
-
+const keyId = process.env.RAZORPAY_KEY_ID;
+const keySecret = process.env.RAZORPAY_SECRET;
+const razorpay = new Razorpay({
+    key_id: "rzp_test_e6W9nbHmrkWCgx",
+    key_secret: "an7VgCswv1YTyayotGgqTXPc"
+  });
 
 const createDonations = asyncHandler (async (req, res) => {
-
-    try {
-        const instance = new Razorpay({
-            key_id: process.env.RAZORPAY_KEY_ID,
-            key_secret: process.env.RAZORPAY_SECRET,
-        });
-
-        const options = {
-            amount: 50000, // amount in smallest currency unit
-            currency: "INR",
-            receipt: "receipt_order_74394",
-        };
-
-        const order = await instance.orders.create(options);
-
-        if (!order) return res.status(500).send("Some error occured");
-
-        res.json(order);
-    } catch (error) {
-        res.status(500).send(error);
+    const payment_capture = 1;
+    const amount = 100;
+    const currency = "INR";
+    
+    const options = {
+        amount: (amount * 100).toString(),
+         currency, 
+         receipt: shortId.generate(), 
+         payment_capture
     }
+    
+    try {
+        const response = await razorpay.orders.create(options);
+        console.log(response);
+        res.json({
+            id: response.id,
+            currency: response.currency,
+            amount: response.amount
+        })
+    } catch (error) {
+        console.log(error);
+    }
+
  })
 
  const verifyDonation = () => {
-    try {
-        // getting the details back from our font-end
-        const {
-            orderCreationId,
-            razorpayPaymentId,
-            razorpayOrderId,
-            razorpaySignature,
-        } = req.body;
+    // Do a Validation
+    const secret = process.env.RAZORPAY_WEBHOOK_SECRET;
 
-        // Creating our own digest
-        // The format should be like this:
-        // digest = hmac_sha256(orderCreationId + "|" + razorpayPaymentId, secret);
-        const shasum = crypto.createHmac("sha256", "w2lBtgmeuDUfnJVp43UpcaiT");
+    console.log(req.body)
 
-        shasum.update(`${orderCreationId}|${razorpayPaymentId}`);
+	const crypto = require('crypto')
 
-        const digest = shasum.digest("hex");
+	const shasum = crypto.createHmac('sha256', secret)
+	shasum.update(JSON.stringify(req.body))
+	const digest = shasum.digest('hex')
 
-        // comaparing our digest with the actual signature
-        if (digest !== razorpaySignature)
-            return res.status(400).json({ msg: "Transaction not legit!" });
+	console.log(digest, req.headers['x-razorpay-signature'])
 
-        // THE PAYMENT IS LEGIT & VERIFIED
-        // YOU CAN SAVE THE DETAILS IN YOUR DATABASE IF YOU WANT
+	if (digest === req.headers['x-razorpay-signature']) {
+		console.log('request is legit')
+		// process it
+		require('fs').writeFileSync('payment1.json', JSON.stringify(req.body, null, 4))
+	} else {
+		// pass it
+	}
 
-        res.json({
-            msg: "success",
-            orderId: razorpayOrderId,
-            paymentId: razorpayPaymentId,
-        });
-    } catch (error) {
-        res.status(500).send(error);
-    }
+    res.json({ status: 'ok' })
  }
 
 

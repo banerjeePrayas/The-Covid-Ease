@@ -1,88 +1,73 @@
 import React from 'react'
-import axios from 'axios'
-// import logo from '/favicon.ico'
+
+// https://blog.learncodeonline.in/razorpay-integration-in-react
+// https://hashnode.com/
+
+
+function loadScript(src) {
+	return new Promise((resolve) => {
+		const script = document.createElement('script')
+		script.src = src
+		script.onload = () => {
+			resolve(true)
+		}
+		script.onerror = () => {
+			resolve(false)
+		}
+		document.body.appendChild(script)
+	})
+}
+
+
+const __DEV__ = document.domain === 'localhost';
 
 const DonateScreen = () => {
 
-    const loadScript =  (src) => {
-        return new Promise((resolve) => {
-            const script = document.createElement("script");
-            script.src = src;
-            script.onload = () => {
-                resolve(true);
-            };
-            script.onerror = () => {
-                resolve(false);
-            };
-            document.body.appendChild(script);
-        });
-    }
-
-    const displayRazorpay = async () => {
-        const res = await loadScript(
-            "https://checkout.razorpay.com/v1/checkout.js"
-        );
+    async function displayRazorpay() {
+        const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js');
 
         if (!res) {
-            alert("Razorpay SDK failed to load. Are you online?");
-            return;
-        }
+			alert('Razorpay SDK failed to load. Are you online?')
+			return
+		}
 
-        // creating a new order
-        const result = await axios.post('http://localhost:3000/api/payment/donations');
+        const data = await fetch('api/donation/payDonation', { method: 'POST' }).then((t) =>
+			t.json()
+		)
 
-        if (!result) {
-            alert("Server error. Are you online?");
-            return;
-        }
+		console.log(data)
 
-        // Getting the order details back
-        const { amount, id: order_id, currency } = result.data;
-
-        const options = {
-            key: "rzp_test_vhxTUjc3urBEFY", // Enter the Key ID generated from the Dashboard
-            amount: amount.toString(),
-            currency: currency,
-            name: "Prayas Banerjee",
-            description: "One & Only Destination for Covid Resources",
-            // image: { logo },
-            order_id: order_id,
-            handler: async function (response) {
-                const data = {
-                    orderCreationId: order_id,
-                    razorpayPaymentId: response.razorpay_payment_id,
-                    razorpayOrderId: response.razorpay_order_id,
-                    razorpaySignature: response.razorpay_signature,
-                };
-
-                const result = await axios.post('http://localhost:3000/api/payment/success', data);
-
-                alert(result.data.msg);
-            },
+        var options = {
+            key: __DEV__ ? process.env.RAZORPAY_KEY_ID : process.env.RAZORPAY_KEY_ID,
+            amount: data.amount.toString(), 
+            currency: data.currency,
+            name: "The-Covid-Ease",
+            description: "Donate Us & Help Us Grow",
+            image: "https://the-covid-ease.herokuapp.com/images/covid-svg.svg",
+            order_id: data.id, 
+            callback_url: "https://eneqd3r9zrjok.x.pipedream.net/",
             prefill: {
-                name: "Soumya Dey",
-                email: "SoumyaDey@example.com",
-                contact: "9999999999",
-            },
-            notes: {
-                address: "Soumya Dey Corporate Office",
-            },
-            theme: {
-                color: "#61dafb",
-            },
+				name: 'Prayas',
+				email: 'sdfdsjfh2@ndsfdf.com',
+				phone_number: '9899999999'
+			},
+            "theme": {
+                "color": "#3399cc"
+            }
         };
-
         const paymentObject = new window.Razorpay(options);
         paymentObject.open();
     }
 
+    
 
     return (
-        <>
-            <button className="App-link" onClick={displayRazorpay}>
-                    Pay ₹500
-            </button>
-        </>
+        <div>
+            <h1>
+            Donate Any Amount of Your Choice to Help Us Support More People Free of Cost.
+            </h1>
+            <a target="_blank" onClick={displayRazorpay}>Donate Rs. 100</a>
+        </div>
     )
 }
 

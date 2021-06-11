@@ -210,9 +210,15 @@ const Header = () => {
             </LinkContainer>
         </Nav.Link>
         </NavDropdown.Item>
-      </NavDropdown>
-      <Nav.Link><LinkContainer to='/help'>
+        <NavDropdown.Item href="">
+        <Nav.Link><LinkContainer to='/help'>
                 <a class="active" href="#">Help Me</a>
+            </LinkContainer>
+        </Nav.Link>
+        </NavDropdown.Item>
+      </NavDropdown>
+      <Nav.Link><LinkContainer to='/contact-us'>
+                <a class="active" href="#">Contact Us</a>
             </LinkContainer>
         </Nav.Link>
         <Nav.Link href="https://docs.google.com/forms/d/e/1FAIpQLSeVfjH7dDkiQIHbGo-qAjUaErrUiVABbnNhfvnO3EskVA09sA/viewform" target='_blank'>Add Lead</Nav.Link>

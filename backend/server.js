@@ -39,7 +39,7 @@ app.use('/api/adminUser', userRoutes);
 
 app.use('/api/doctors-consultancy', doctorRoutes);
 app.use('/api/oxygen-cylinder', oxygenRoutes);
-app.use('/api/payment', donationRoutes);
+app.use('/api/donation', donationRoutes);
 
 app.use('/api/upload', uploadRoutes);
 
