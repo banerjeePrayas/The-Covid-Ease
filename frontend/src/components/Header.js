@@ -215,10 +215,7 @@ const Header = () => {
                 <a class="active" href="#">Help Me</a>
             </LinkContainer>
         </Nav.Link>
-      <Nav.Link><LinkContainer to='/addLead'>
-                <a class="active" href="#">Add Lead</a>
-            </LinkContainer>
-        </Nav.Link>
+        <Nav.Link href="https://docs.google.com/forms/d/e/1FAIpQLSeVfjH7dDkiQIHbGo-qAjUaErrUiVABbnNhfvnO3EskVA09sA/viewform" target='_blank'>Add Lead</Nav.Link>
     </Nav>
   </Navbar.Collapse>
 </Navbar>
