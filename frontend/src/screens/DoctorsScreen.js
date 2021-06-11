@@ -2,11 +2,12 @@
 import React, { useState, useEffect } from 'react';
 // import { LinkContainer } from 'react-router-bootstrap'
 // import { Link } from 'react-router-dom';
-// import { Table, Button, Row, Col } from 'react-bootstrap'
+import { Image } from 'react-bootstrap'
 import HashLoader from 'react-spinners/HashLoader'
 import { css } from "@emotion/react";
 import Meta from '../components/Meta';
 import PageHeaders from '../components/PageHeaders';
+import SearchBox from '../components/SearchBox';
 
 const override = css`
   display: block;
@@ -87,15 +88,16 @@ const DoctorsScreen = () => {
             
               <>
               <PageHeaders message='Doctors - ডাক্তার' />
+              <SearchBox />
                 <div className='doctor-layout'>
                 {
                   doctors.map((doctor) => (
                     <div className="card-doctor" key={doctor._id}>
-                        <img src={doctor.image} alt={doctor.name}></img>
+                        <Image src={doctor.image} alt={doctor.name}></Image>
                         <h1 className='doctor-name'>DR {doctor.name}</h1>
                         <h2 className="doctor-degree">{doctor.degree}</h2>
                         <p className="title-doctor">{doctor.treatmentDomain}</p>
-                        <p>Regd No: <span>{doctor.redgNo}</span></p>
+                        {/* <p>Regd No: <span>{doctor.redgNo}</span></p> */}
                         <p className="doctor-address">Fees: {doctor.onlineConsultancyFees}</p>
                         
                         <p>

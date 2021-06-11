@@ -18,6 +18,8 @@ import CarScreen from './screens/CarScreen.js'
 import SafeHomeScreen from './screens/SafeHomeScreen.js'  
 import AmbulanceScreen from './screens/AmbulanceScreen.js'  
 import DonateScreen from './screens/DonateScreen.js'  
+import ContactUsScreen from './screens/ContactUsScreen.js'  
+import PrivacyScreen from './screens/PrivacyScreen.js'  
 import GoogleFormScreen from './screens/GoogleFormScreen.js'  
 import AdminLoginScreen from './screens/AdminLoginScreen.js'  
 import AdminPanelScreen from './screens/AdminPanelScreen.js'  
@@ -90,6 +92,8 @@ function App() {
           <Route path='/safe-home' component={SafeHomeScreen} exact />
           <Route path='/ambulance-service' component={AmbulanceScreen} exact />
           <Route path='/donate' component={DonateScreen} exact />
+          <Route path='/contact-us' component={ContactUsScreen} exact />
+          <Route path='/privacy-policy' component={PrivacyScreen} exact />
           <Route path='/admin' component={AdminLoginScreen} exact />
           <Route path='/adminPanel' component={AdminPanelScreen} exact />
           <Route path='/adminPanel/register' component={RegisterScreen} exact />
