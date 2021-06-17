@@ -5,8 +5,8 @@ import shortId  from 'shortid';
 const keyId = process.env.RAZORPAY_KEY_ID;
 const keySecret = process.env.RAZORPAY_SECRET;
 const razorpay = new Razorpay({
-    key_id: "rzp_live_lsy6BoOE1OVfaP",
-    key_secret: "eaGjTFtyfbU7KJ2IGsYznfH7"
+    key_id: "",
+    key_secret: ""
   });
 
 const createDonations = asyncHandler (async (req, res) => {
