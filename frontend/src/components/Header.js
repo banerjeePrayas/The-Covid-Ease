@@ -222,6 +222,15 @@ const Header = () => {
             </LinkContainer>
         </Nav.Link>
         <Nav.Link href="https://docs.google.com/forms/d/e/1FAIpQLSeVfjH7dDkiQIHbGo-qAjUaErrUiVABbnNhfvnO3EskVA09sA/viewform" target='_blank'>Add Lead</Nav.Link>
+    
+        { userInfo ? (
+            <NavDropdown title="Admin" id="basic-nav-dropdown">
+                <LinkContainer  to='/adminPanel'>
+                    <NavDropdown.Item>Dashboard</NavDropdown.Item>
+                </LinkContainer>
+                <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
+            </NavDropdown>
+        ) : '' }
     </Nav>
   </Navbar.Collapse>
 </Navbar>

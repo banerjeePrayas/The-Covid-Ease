@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Loader } from 'react-feather';
 import { LinkContainer } from 'react-router-bootstrap'
 import Meta from '../components/Meta';
-
+import PaginationBar from '../components/Pagination'
 
 const OxygenScreen = () => {
     const [isLoading, setLoading] = useState(false);
 
     const [oxygens, setOxygens] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage, setPostsPerPage] = useState(3);
 
     useEffect(() => {
         setLoading(true)
@@ -23,6 +25,18 @@ const OxygenScreen = () => {
         setLoading(false)
     }, []);
 
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = oxygens.slice(indexOfFirstPost, indexOfLastPost)
+
+    // Chnage Page
+    // const paginate = (pageNumber) => {
+    //   setCurrentPage(pageNumber)
+    // }
+    const paginate = (event, value) => {
+        setCurrentPage(value)
+    }
+
 
     return (
         <>
@@ -31,7 +45,7 @@ const OxygenScreen = () => {
             { isLoading ? ( <Loader /> ) : (
                 
                 <>
-                    { oxygens.map((oxygen) => (
+                    { currentPosts.map((oxygen) => (
 
                     <div className='container-oxygen'>
                     <div className='card-resources'>
@@ -43,8 +57,10 @@ const OxygenScreen = () => {
                             {/* <LinkContainer to='/bed-availability'><a href='#'>Read More</a></LinkContainer> */}
                         </div>
                     </div>   
+
                     </div>
                     ))}
+                    <PaginationBar postsPerPage={postsPerPage} totalPosts={oxygens.length} paginate={paginate} />
                 </>
                 
             )}

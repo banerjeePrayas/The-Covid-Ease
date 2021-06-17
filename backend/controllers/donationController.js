@@ -5,13 +5,16 @@ import shortId  from 'shortid';
 const keyId = process.env.RAZORPAY_KEY_ID;
 const keySecret = process.env.RAZORPAY_SECRET;
 const razorpay = new Razorpay({
-    key_id: "rzp_test_e6W9nbHmrkWCgx",
-    key_secret: "an7VgCswv1YTyayotGgqTXPc"
+    key_id: "rzp_live_lsy6BoOE1OVfaP",
+    key_secret: "eaGjTFtyfbU7KJ2IGsYznfH7"
   });
 
 const createDonations = asyncHandler (async (req, res) => {
+
+    // const { amount } = req.body;
     const payment_capture = 1;
-    const amount = 100;
+    // const Amount = amount;
+    const amount = 10;
     const currency = "INR";
     
     const options = {

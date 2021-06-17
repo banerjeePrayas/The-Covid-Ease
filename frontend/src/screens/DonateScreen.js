@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 // https://blog.learncodeonline.in/razorpay-integration-in-react
 // https://hashnode.com/
@@ -23,6 +23,9 @@ const __DEV__ = document.domain === 'localhost';
 
 const DonateScreen = () => {
 
+  const [amount, setAmount] = useState();
+
+
     async function displayRazorpay() {
         const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js');
 
@@ -39,7 +42,8 @@ const DonateScreen = () => {
 
         var options = {
             key: __DEV__ ? process.env.RAZORPAY_KEY_ID : process.env.RAZORPAY_KEY_ID,
-            amount: data.amount.toString(), 
+            // amount: data.amount.toString(), 
+            amount: amount, 
             currency: data.currency,
             name: "The-Covid-Ease",
             description: "Donate Us & Help Us Grow",
@@ -62,11 +66,27 @@ const DonateScreen = () => {
     
 
     return (
-        <div>
+        <div style={{margin: '0 auto'}}>
             <h1>
             Donate Any Amount of Your Choice to Help Us Support More People Free of Cost.
             </h1>
-            <a target="_blank" onClick={displayRazorpay}>Donate Rs. 100</a>
+            <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Enter Amount</label>
+                <input type="number" class="form-control" onChange={(e) => setAmount(e.target.value)} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Amount"></input>
+                {/* <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> */}
+            </div>
+            {/* <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"></input>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1"></input>
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div> */}
+            {/* <button type="submit" onClick={displayRazorpay} class="btn btn-primary">Donate</button> */}
+            <a onClick={displayRazorpay}>Donate</a>
+            </form>
         </div>
     )
 }
