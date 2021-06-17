@@ -1,13 +1,23 @@
 // import React, { useEffect } from 'react'
 import React, { useState, useEffect } from 'react';
 // import { LinkContainer } from 'react-router-bootstrap'
-// import { Link } from 'react-router-dom';
-import { Image } from 'react-bootstrap'
+import { Image } from 'cloudinary-react'
+// import { Image } from 'react-bootstrap'
 import HashLoader from 'react-spinners/HashLoader'
 import { css } from "@emotion/react";
 import Meta from '../components/Meta';
 import PageHeaders from '../components/PageHeaders';
 import SearchBox from '../components/SearchBox';
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import PaginationBar from '../components/Pagination'
+
 
 const override = css`
   display: block;
@@ -19,9 +29,38 @@ const override = css`
   transform: translate(-50%, -50%);
 `;
 
-const DoctorsScreen = () => {
+const useStyles = makeStyles({
+  root: {
+    maxWidth: 300,
+    minWidth: 300,
+    minHeight: 300,
+    maxHeight: 400,
+    marginBottom: "2rem",
+    textAlign: "center",
+    margin: "0 auto",
+    boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+    position:"relative"
+  },
+  media: {
+    height: 150,
+    textAlign: "center",
+    width: 150,
+    padding: "1rem",
+    borderRadius: "100%",
+    margin: "0 auto"
+    //  height: "50px"
+  },
+  button: {
+    // position:"absolute",
+    // bottom:0
+  }
+});
 
+const DoctorsScreen = () => {
+  const classes = useStyles();
   const [isLoading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(6);
 
 
     useEffect(() => {
@@ -81,6 +120,23 @@ const DoctorsScreen = () => {
       });
   }, []);
 
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = doctors.slice(indexOfFirstPost, indexOfLastPost)
+
+  // Chnage Page
+  // const paginate = (pageNumber) => {
+  //   setCurrentPage(pageNumber)
+  // }
+  const paginate = (event, value) => {
+    setCurrentPage(value)
+  }
+
+  const setPerPage = (event) => {
+    setPostsPerPage(parseInt(event.target.value, 10));
+    setCurrentPage(0);
+  };
+
     return (
         <div>
           <Meta title='Doctors | The-Covid-Ease' description='Doctors for Online Consultation' keywords='doctors for Covid' />
@@ -91,27 +147,42 @@ const DoctorsScreen = () => {
               <SearchBox />
                 <div className='doctor-layout'>
                 {
-                  doctors.map((doctor) => (
-                    <div className="card-doctor" key={doctor._id}>
-                        <Image src={doctor.image} alt={doctor.name}></Image>
-                        <h1 className='doctor-name'>DR {doctor.name}</h1>
-                        <h2 className="doctor-degree">{doctor.degree}</h2>
-                        <p className="title-doctor">{doctor.treatmentDomain}</p>
-                        {/* <p>Regd No: <span>{doctor.redgNo}</span></p> */}
-                        <p className="doctor-address">Fees: {doctor.onlineConsultancyFees}</p>
-                        
-                        <p>
-                            <button><a href={`tel:${doctor.mobileNo}`}><i class="fas fa-phone-alt"></i> Contact</a></button>
-                            <button><a href={`mailto:${doctor.email}`}><i class="far fa-envelope"></i> Mail</a></button>
-                        </p>
-                    </div>
+                  currentPosts.map((doctor) => (
+                    <Card className={classes.root}>
+                    <CardActionArea>
+                    <Image className={classes.media} cloudName="the-covid-ease" publicId={`https://res.cloudinary.com/the-covid-ease/image/upload/v1623868146/${doctor.image}`} alt="Profile Pic"></Image>
+                      <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                          {doctor.name}
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                          {doctor.address}
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+                    { doctor.mobileNo ?  <a className={classes.button} href={`tel:${doctor.mobileNo}`} style={{ backgroundColor: '#485785', color: '#f1f1f1', textDecoration: 'none', width: '100%', borderRadius: '10px'}}>
+                      <Button className={classes.button} style={{color: '#f1f1f1'}} size="medium" color="secondary" fullWidth>
+                        CALL
+                      </Button>
+                      </a> : null}
+                      { doctor.email ?  <a className={classes.button} href={`mailto:${doctor.email}`} style={{ backgroundColor: '#485785', color: '#f1f1f1', textDecoration: 'none', width: '100%', borderRadius: '10px'}}>
+                      <Button className={classes.button} style={{color: '#f1f1f1'}} size="medium" color="secondary" fullWidth>
+                        EMAIL
+                      </Button>
+                      </a> : null}
+                    </CardActions>
+                  </Card>
                   ))
                 }
                 </div>
+                <PaginationBar style={{textAlign: 'center'}} postsPerPage={postsPerPage} totalPosts={doctors.length} paginate={paginate} />
+
               </>
               
             )
             }
+            
                 
             
         </div>

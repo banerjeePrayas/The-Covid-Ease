@@ -1,14 +1,17 @@
 {
   "name": "frontend",
-  "proxy": "http://127.0.0.1:8500",
+  "proxy": "http://localhost:8500",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.4.0",
+    "@material-ui/core": "^4.11.4",
+    "@material-ui/lab": "*",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
+    "cloudinary-react": "^1.7.0",
     "i18next": "^20.2.4",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.0",

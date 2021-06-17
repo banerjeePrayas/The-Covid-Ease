@@ -431,15 +431,17 @@ footer .links-policies a {
 /* DOCTOR's SCREEN */
 .doctor-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  margin-top: 2rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* margin-top: 2rem; */
+  padding: 5rem;
+  text-align: center;
 }
 .card-doctor {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;
   min-width: 300px;
-  max-height: 420px;
-  min-height: 420px;
+  max-height: 380px;
+  min-height: 380px;
   margin: auto;
   padding: 1rem;
   margin-bottom: 1.5rem;
@@ -1956,4 +1958,17 @@ hr {
   .direct-contact-container {
     max-width: 300px;
   }  
+}
+
+
+
+/* PAGINATION BAR */
+.MuiPagination-ul {
+  text-align: center !important;
+  margin: 0 auto !important;
+  justify-content: center !important;
+}
+
+.paginationBar {
+  margin-top: 4rem;
 }

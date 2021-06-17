@@ -73,31 +73,62 @@ const DoctorEditID = ({ history, match }) => {
     }, [history, userInfo, dispatch, successUpdate])
 
 
+    // const uploadFileHandler = async (e) => {
+    //     const file = e.target.files[0]
+    //     // console.log(file);
+    //     const formData = new FormData()
+    //     formData.append('image', file)
+    //     setUploading(true)
+    
+    //     try {
+    //       const config = {
+    //         headers: {
+    //           'Content-Type': 'multipart/form-data',
+    //         },
+    //       }
+    
+    //       const { data } = await axios.post('/api/upload', formData, config)
+    //       console.log(data);  
+    
+    //       setImage(data)
+    //       setUploading(false)
+    //     } catch (error) {
+    //       console.error(error)
+    //       setUploading(false)
+    //     }
+    //   }
+
+
     const uploadFileHandler = async (e) => {
         const file = e.target.files[0]
         // console.log(file);
         const formData = new FormData()
-        formData.append('image', file)
+        formData.append('file', file)
+        formData.append("upload_preset", "theCovidEase")
         setUploading(true)
     
         try {
-          const config = {
-            headers: {
-              'Content-Type': 'multipart/form-data',
-            },
-          }
+          // const config = {
+          //   headers: {
+          //     'Content-Type': 'multipart/form-data',
+          //   },
+          //   onUploadProgress: progressEvent => {
+          //     setUploadPercentage(parseInt(Math.round((progressEvent.loaded * 100) / progressEvent.total)))
+          //     // Clear Percentage
+          //     setTimeout(() => setUploadPercentage(0), 10000);
+          //   }
+          // }
     
-          const { data } = await axios.post('/api/upload', formData, config)
+          const { data } = await axios.post('https://api.cloudinary.com/v1_1/the-covid-ease/image/upload', formData)
           console.log(data);  
     
-          setImage(data)
+          setImage(data.public_id)
           setUploading(false)
         } catch (error) {
           console.error(error)
           setUploading(false)
         }
       }
-
 
     const submitHandler = (e) => {
         e.preventDefault()
