@@ -1,7 +1,7 @@
 import React from 'react'
 import { DropdownButton, Dropdown } from 'react-bootstrap'
 
-const SearchBox = () => {
+const SearchBox = ({ searchItem, setSearchTerm }) => {
 
     return (
         <>
@@ -23,7 +23,7 @@ const SearchBox = () => {
                 <div class="search_box">
                     
                     <div class="search_field">
-                        <input type="text" class="input" placeholder="Search"></input>
+                        <input type="text" class="input" onChange={event => {setSearchTerm(event.target.value)}} placeholder="Search"></input>
                         <i class="fas fa-search"></i>
                     </div>
                 </div>

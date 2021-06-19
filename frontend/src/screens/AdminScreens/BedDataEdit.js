@@ -54,7 +54,7 @@ const BedDataEdit = ({ history }) => {
         } 
 
         if(successCreate) {
-            history.push(`/admin/WB-beds/${createdHospital._id}/edit`)
+            history.push(`/admin/bed-availabilityEdit/${createdHospital._id}/edit`)
         }
              // dispatch(listHospitals());
             fetch('/api/WB-beds')   

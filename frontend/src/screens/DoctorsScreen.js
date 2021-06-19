@@ -17,7 +17,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import PaginationBar from '../components/Pagination'
-
+import Grid from '@material-ui/core/Grid';
+import Container from '@material-ui/core/Container';
 
 const override = css`
   display: block;
@@ -29,7 +30,7 @@ const override = css`
   transform: translate(-50%, -50%);
 `;
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 300,
     minWidth: 300,
@@ -50,11 +51,23 @@ const useStyles = makeStyles({
     margin: "0 auto"
     //  height: "50px"
   },
-  button: {
-    // position:"absolute",
-    // bottom:0
-  }
-});
+  cardGrid: {
+    paddingTop: theme.spacing(8),
+    paddingBottom: theme.spacing(8),
+  },
+  card: {
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    textAlign: 'center',
+  },
+  cardMedia: {
+    paddingTop: '56.25%', // 16:9
+  },
+  cardContent: {
+    flexGrow: 1,
+  },
+}));
 
 const DoctorsScreen = () => {
   const classes = useStyles();
@@ -138,30 +151,30 @@ const DoctorsScreen = () => {
   };
 
     return (
-        <div>
+        <div style={{paddingBottom: '2rem'}}>
           <Meta title='Doctors | The-Covid-Ease' description='Doctors for Online Consultation' keywords='doctors for Covid' />
           { isLoading ? ( <HashLoader color={"#123abc"} loading={isLoading} css={override}  size={150} /> ) : (
             
               <>
               <PageHeaders message='Doctors - ডাক্তার' />
               <SearchBox />
-                <div className='doctor-layout'>
-                {
-                  currentPosts.map((doctor) => (
-                    <Card className={classes.root}>
-                    <CardActionArea>
-                    <Image className={classes.media} cloudName="the-covid-ease" publicId={`https://res.cloudinary.com/the-covid-ease/image/upload/v1623868146/${doctor.image}`} alt="Profile Pic"></Image>
-                      <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2">
-                          {doctor.name}
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                          {doctor.address}
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                    <CardActions>
-                    { doctor.mobileNo ?  <a className={classes.button} href={`tel:${doctor.mobileNo}`} style={{ backgroundColor: '#485785', color: '#f1f1f1', textDecoration: 'none', width: '100%', borderRadius: '10px'}}>
+              <Container className={classes.cardGrid} maxWidth="md">
+          {/* End hero unit */}
+          <Grid container spacing={4}>
+            {currentPosts.map((doctor) => (
+              <Grid item key={doctor} xs={12} sm={6} md={4}>
+                <Card className={classes.card}>
+                <Image className={classes.media} cloudName="the-covid-ease" publicId={`https://res.cloudinary.com/the-covid-ease/image/upload/v1623868146/${doctor.image}`} alt="Profile Pic"></Image>
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {doctor.name}
+                    </Typography>
+                    <Typography>
+                      {doctor.address}
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                  { doctor.mobileNo ?  <a className={classes.button} href={`tel:${doctor.mobileNo}`} style={{ backgroundColor: '#485785', color: '#f1f1f1', textDecoration: 'none', width: '100%', borderRadius: '10px'}}>
                       <Button className={classes.button} style={{color: '#f1f1f1'}} size="medium" color="secondary" fullWidth>
                         CALL
                       </Button>
@@ -171,12 +184,12 @@ const DoctorsScreen = () => {
                         EMAIL
                       </Button>
                       </a> : null}
-                    </CardActions>
-                  </Card>
-                  ))
-                }
-                </div>
-                <PaginationBar style={{textAlign: 'center'}} postsPerPage={postsPerPage} totalPosts={doctors.length} paginate={paginate} />
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
 
               </>
               
@@ -184,6 +197,7 @@ const DoctorsScreen = () => {
             }
             
                 
+            <PaginationBar style={{textAlign: 'center'}} postsPerPage={postsPerPage} totalPosts={doctors.length} paginate={paginate} />
             
         </div>
     )
