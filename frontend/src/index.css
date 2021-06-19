@@ -432,8 +432,9 @@ footer .links-policies a {
 .doctor-layout {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  /* margin-top: 2rem; */
-  padding: 5rem;
+  margin-top: 2rem !important;
+  /* padding: 5rem; */
+  margin: 0 auto;
   text-align: center;
 }
 .card-doctor {
@@ -520,6 +521,8 @@ footer .links-policies a {
   .doctor-layout {
     grid-template-columns: 1fr;
     grid-row: 1rem;
+    margin: 0 auto;
+    text-align: center;
   }
   .card-doctor {
     padding: 0.8rem;
@@ -1088,13 +1091,13 @@ nav .logo {
 nav .logo .img {
   width: 30px 30px;
 }
-nav ul{
+/* nav ul{
   display: flex;
   flex-wrap: wrap;
   list-style: none;
   margin-bottom: 0 !important;
-}
-nav ul li{
+} */
+/* nav ul li{
   margin: 0 5px;
 }
 nav ul li a{
@@ -1106,7 +1109,7 @@ nav ul li a{
   border-radius: 5px;
   letter-spacing: 1px;
   transition: all 0.3s ease;
-}
+} */
 
 nav ul li a:hover{
   color: #7695F3 !important;
@@ -1123,9 +1126,9 @@ input[type="checkbox"]{
 }
 @media (max-width: 1000px){
   
-  nav{
+  /* nav{
     padding: 0 40px 0 30px;
-  }
+  } */
   .nav .logo {
     width: 50px 50px !important;
     font-size: 1rem !important;
@@ -1153,7 +1156,7 @@ input[type="checkbox"]{
   #click:checked ~ .menu-btn i:before{
     content: "\f00d";
   }
-  nav ul{
+  /* nav ul{
     position: fixed;
     top: 80px;
     left: -100%;
@@ -1165,14 +1168,14 @@ input[type="checkbox"]{
     display: block;
     transition: all 0.3s ease;
     z-index: 5;
-  }
+  } */
   #click:checked ~ ul{
     left: 0;
   }
-  nav ul li{
+  /* nav ul li{
     width: 100%;
     margin: 40px 0;
-  }
+  } */
   #click:checked ~ nav ul li a{
     width: 100%;
     margin-left: -100%;
@@ -1965,10 +1968,10 @@ hr {
 /* PAGINATION BAR */
 .MuiPagination-ul {
   text-align: center !important;
-  margin: 0 auto !important;
+  /* margin: 0 auto !important; */
   justify-content: center !important;
 }
 
 .paginationBar {
-  margin-top: 4rem;
+  margin-top: 3rem;
 }
